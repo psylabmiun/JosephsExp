@@ -1,0 +1,109 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Final Questions</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1 "/EN>
+<meta name="robots" content="noindex,follow" />
+<script language="JavaScript" type="text/javascript">
+
+
+    // Javascript validation functions
+    // Thank you: http://www.designplace.org/
+
+
+    //function to check empty fields
+
+    function isEmpty(strlname, strcompany, stremail) {
+
+
+        //change "lname, company and email" to your field names
+        strfname = document.forms[0].fname.value
+        strlname = document.forms[0].lname.value
+        strcompany = document.forms[0].company.value
+        stremail = document.forms[0].email.value
+
+        //fname field
+        if (strfname == "" || strfname == null || !isNaN(strfname) || strfname.charAt(0) == ' ') {
+            alert("\"First Name\" is a mandatory field.\nPlease amend and retry.")
+            return false;
+        }
+        //lname field
+        if (strlname == "" || strlname == null || !isNaN(strlname) || strlname.charAt(0) == ' ') {
+            alert("\"Last Name\" is a mandatory field.\nPlease amend and retry.")
+            return false;
+        }
+
+        //company field 
+        if (strcompany == "" || strcompany == null || strcompany.charAt(0) == ' ') {
+            alert("\"Company\" is a mandatory field.\nPlease amend and retry.")
+            return false;
+        }
+
+        //email field 
+        if (stremail == "" || stremail == null || stremail.charAt(0) == ' ') {
+            alert("\"E-mail Address\" is a mandatory field.\nPlease amend and retry.")
+            return false;
+        }
+        return true;
+    }
+
+
+    //function to check valid email address
+    function isValidEmail(stremail) {
+        validRegExp = /^[^@]+@[^@]+.[a-z]{2,}$/i;
+        strEmail = document.forms[0].email.value;
+
+        // search email text for regular exp matches
+        if (stremail.search(validRegExp) == -1) {
+            alert('A valid e-mail address is required.\Please amend and retry');
+            return false;
+        }
+        return true;
+    }
+    
+
+    //function that performs all functions, defined in the onsubmit event handler
+
+    function check(form) {
+        if (isEmpty(form.lname)) {
+            if (isEmpty(form.company)) {
+                if (isEmpty(form.email)) {
+                    if (isValidEmail(form.email)) {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
+
+</script>
+</head>
+
+<body bgcolor="#e1faf9" text="#000000">
+<h3><big><big><big>Final Questions</big></big></big></h3>
+<br>
+<form name="theform" method="post" action="http://www.given-communication.de/dnldbx/Experiment/webform/cgi-bin/SendFinalQuestionnaire.php" onSubmit="return check(this);">
+  &nbsp;&nbsp;Your Code (required!)<br />
+&nbsp;&nbsp;<input name="fname" type="text" />
+	<br><br>
+  &nbsp;&nbsp;Did you complete the test? Yes/No <br />
+&nbsp;&nbsp;<input name="lname" type="text" />
+
+
+&nbsp;&nbsp;<input name="email" type="hidden" id="email" value="jogi1800@student.miun.se"/>
+
+<br><br>&nbsp;&nbsp;Robot check (required!) <br>&nbsp;&nbsp;If you are not a robot write the answer below: <br>
+&nbsp;&nbsp;7 + 2 = <input name="company" type="text" pattern="9" />
+	<br /><br />
+
+
+<p><b> </b></p>
+&nbsp;&nbsp;<big><i>
+    Before you hit the send button, please don't forget:
+    <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- to answer the questions below.
+    <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- to send us your experimental data (per email).
+</big> 
+<br><br>&nbsp;&nbsp;The following link should open your email programm with a description of the data required: 
+
+

@@ -1,0 +1,42 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class ParticipNumInput : MonoBehaviour
+
+{
+    public ExperimentalProcedure expProc;
+    public BeginHere beginHere;
+    public static string stringToEdit = "----";
+    public static string textAreaString = "Please enter your participant code -- >";
+    public static string EmailContact = "jogi1800@miun.se";
+    public bool GuiOn;
+
+    public GUISkin InputBoxSkin;
+    public string passwordToEdit = "Jose";
+
+
+    public void OnGUI()
+    {
+        if (GuiOn == true)
+        {
+            GUI.skin = InputBoxSkin;
+            // Make a text field that modifies stringToEdit.
+            EmailContact = GUI.TextArea(new Rect(0f, 80f, 270f, 25f), EmailContact, 45);
+            textAreaString = GUI.TextArea(new Rect(0f, 50f, 270f, 25f), textAreaString, 45);
+            stringToEdit = GUI.PasswordField(new Rect(275f, 50f, 60f, 25f), passwordToEdit, "*"[0], 4);
+        }
+    }
+
+    public void Update()
+    {
+        if (ExperimentalProcedure.ExpProc == 0 || ExperimentalProcedure.ExpProc == 1)
+        {
+            GuiOn = true;
+        }
+        else
+        {
+            GuiOn = false;
+        }
+    }
+}

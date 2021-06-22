@@ -1,0 +1,162 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using System.IO;
+using System.Threading;
+using UnityEngine.UI;
+using System.Collections.Specialized;
+
+public class TaskCalibration : MonoBehaviour
+{
+    string startupPath = System.IO.Directory.GetCurrentDirectory() + "/FinalLog";
+    string StrngInstructionsHTM = System.IO.Directory.GetCurrentDirectory() + "/FinalLog/" + "FinalInstructions.htm";
+    string StrngSendingDataHTM = System.IO.Directory.GetCurrentDirectory() + "/FinalLog/" + "SendingTheData.htm";
+    string StrngInstructionsHref = "Fil" +"e:///" + System.IO.Directory.GetCurrentDirectory() + "/FinalLog/" + "SendingTheData.htm";
+
+    public int OpenHTMFile;
+    public int OpenInExplorer;
+    public int IntFinishHTM;
+
+
+    public ExperimentalProcedure experimentalProcedureScript;
+    public GameObject TaskCalibrationText;
+
+    void Start()
+    {
+        TaskCalibrationText.SetActive(true);
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            ExperimentalProcedure.BooltaskInstruction = true;
+            TaskCalibrationText.SetActive(false);
+        }
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+
+            ShowExplorer();
+        }
+
+    }
+
+
+    public void Wait()
+    {
+        FunctionTimer.StopTimer("WaitingTime");
+        FunctionTimer.Create(makeHTMtest, 1f, "MakeHTMWait");
+    }
+    public void makeHTMtest()
+    {
+        IntFinishHTM++;
+        FunctionTimer.StopTimer("MakeHTMWait");
+        IntFinishHTM++;
+        File.AppendAllText(StrngInstructionsHTM,
+    "<b> Thank you for taking part. To finish off, we need two things: <br> <br><br> <big><big>1. The data log files. You can either:</big></big><br> <br> " +
+    "<big>a. Try clicking here: </big></b><br><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;");
+        //creates link to SendingTheData.HTM
+        //
+        //
+        StrngInstructionsHTM = StrngInstructionsHTM.Replace(@"/", @"\");   // explorer doesn't like front slashes
+        StrngInstructionsHref = StrngInstructionsHref.Replace(@"/", @"\");   // explorer doesn't like front slashes
+        File.AppendAllText(StrngInstructionsHTM,
+                @"<a href=""");
+        StrngInstructionsHref = StrngInstructionsHref.Replace(@"/", @"\");   // explorer doesn't like front slashes
+        StrngInstructionsHTM = StrngInstructionsHTM.Replace(@"/", @"\");   // explorer doesn't like front slashes
+        StrngSendingDataHTM = StrngSendingDataHTM.Replace(@"/", @"\");   // explorer doesn't like front slashes
+        File.AppendAllText(StrngInstructionsHTM,
+            StrngInstructionsHref +
+            @"""" +
+        ">" + StrngSendingDataHTM +
+        "</a></i>");
+        StrngInstructionsHTM = StrngInstructionsHTM.Replace(@"/", @"\");   // explorer doesn't like front slashes
+        File.AppendAllText(StrngInstructionsHTM,
+        "<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If the link has been successfully created, this will open a new local HTM file from your browser with further instructions." +
+
+
+        "<br><br><br><b><b><big>b. Alternatively you can open an email with the following mailto link. Further instructions will be contained in the email: </big></b><br>");
+
+        StrngInstructionsHTM = StrngInstructionsHTM.Replace(@"/", @"\");   // explorer doesn't like front slashes
+        File.AppendAllText(StrngInstructionsHTM,
+        @"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href =""" +
+        "mailt" +
+        "o:jogi1800@stu" +
+        "dent.miun.se?subject=Experiment%20Data&amp" +
+        ";body=Please%20send%20your%20data,%20which%20can%20be%20found%20here." +
+        @""">mailto: jogi1800@student.miun.se</a>");
+
+        StrngInstructionsHTM = StrngInstructionsHTM.Replace(@"/", @"\");   // explorer doesn't like front slashes
+        startupPath = startupPath.Replace(@"/", @"\");   // explorer doesn't like front slashes
+        File.AppendAllText(StrngInstructionsHTM,
+        "<br><br><br><b><big>c. If both options fail, please locate the files yourself in the folder of this application where you saved it after download: </big></b><br><br>" +
+            "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...Your computer path... /SpiderExperiment/Assets/FinalLog/ <br></b> " +
+            "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This folder contains the following files. " +
+
+            "<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>- Instructions.txt which will explain everything you have to do.</i>" +
+            "<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>- Instructions.PDF which will explain everything you have to do and which also contains the debriefing information for this experiment.</i><br><br>" +
+            "<big>" + "&nbsp;<b>I have tried to recreate the path here. If it didn't work, you will have to open then folder yourself. Thanks again for your time : </b>" +
+            "</big><br><br><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + startupPath + "<br><br></i>");
+
+
+
+        StrngInstructionsHTM = StrngSendingDataHTM.Replace(@"/", @"\");   // explorer doesn't like front slashes
+        File.AppendAllText(StrngSendingDataHTM,
+        "These are the files that have to be sent. Please do not change these files in anyway or we cannot decrypt them."
+        + "<br>"
+        + "<br>The files required are as follows"
+        + "<br>ExpSession1.txt"
+        + "<br>ExpSession2.txt"
+        + "<br>ExpSession3.txt"
+        + "<br>ExpSession4.txt"
+        + "<br>TrialSessions1und2.txt"
+        + "<br>TrialSessions3und4.txt"
+        + "<br>In addition you will find this questionnaire as a PDF, in case you prefer to fill it out offline."
+        + "<br><br><br>"
+        + "</form >");
+
+        StrngInstructionsHTM = StrngSendingDataHTM.Replace(@"/", @"\");   // explorer doesn't like front slashes
+        File.AppendAllText(StrngSendingDataHTM,
+        @"""
+        <a href=""#top"">Now click here to return to the top of page. Check your details and click the ""send"" button.</a>"
+        + "<br><br><br>"
+        + "</body>"
+        + "</html>");
+        IntFinishHTM++;
+        IntFinishHTM++;
+    }
+
+
+    public void ShowExplorer()
+    {
+        startupPath = startupPath.Replace(@"/", @"\");   // explorer doesn't like front slashes
+        //System.Diagnostics.Process.Start("explorer.exe", startupPath);
+        Application.OpenURL("file:" + "//" + startupPath + "/5_eyetracking-FullSecondsNearCompletion_Data/FinalLog/FinalLog.txt");
+
+        // Update is called once per frame
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        IntFinishHTM++;
+        if (IntFinishHTM == 2)
+        {
+            IntFinishHTM++;
+            FunctionTimer.Create(Wait, 2f, "WaitingTime");
+
+        }
+
+
+        if (ExperimentalProcedure.BooltaskCalibration == false)
+        {
+            TaskCalibrationText.SetActive(false);
+        }
+        else if (ExperimentalProcedure.BooltaskCalibration == true)
+        {
+            Start();
+
+
+
+        }
+    }
+
+
+}

@@ -1,0 +1,79 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using System.IO;
+using System.Threading;
+using UnityEngine.UI;
+using System.Collections.Specialized;
+
+public class TaskSessionHardConcluded : MonoBehaviour
+{
+    public TaskTestSession taskTestSession;
+    //ToEnd
+    string startupPath = System.IO.Directory.GetCurrentDirectory() + "/FinalLog";
+    string OpenHTM = System.IO.Directory.GetCurrentDirectory() + "/FinalLog/" + "FinalLog.htm";
+    public int OpenHTMFile;
+    public int GetTheLog;
+    
+
+    public GameObject TextendOfTaskHard;
+    public ExperimentalProcedure experimentalProcedure;
+
+    void Start()
+    {
+        TaskTestSession.BoolTrialIsOn = false;
+
+        TextendOfTaskHard.SetActive(true);
+
+        GetTheLog = 0;
+        OpenHTMFile = 0;
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            GetTheLog = 1;
+        }
+        if (Input.GetKeyDown(KeyCode.H))
+        {
+            OpenHTMFile = 1;
+        }
+    }
+
+    void OpenTheHTM()
+    {
+        OpenHTM = OpenHTM.Replace(@"/", @"\");   // explorer doesn't like front slashes
+        System.Diagnostics.Process.Start(OpenHTM);
+    }
+    void GetLog()
+    {
+        startupPath = startupPath.Replace(@"/", @"\");   // explorer doesn't like front slashes
+        System.Diagnostics.Process.Start(startupPath);
+    }
+
+
+    void Update()
+    {
+        if (ExperimentalProcedure.BoolendOfTaskHard == true)
+        {
+            Start();
+        }
+        else
+        {
+            TextendOfTaskHard.SetActive(false);
+        }
+
+        //ToEnd
+
+
+        if (OpenHTMFile == 1)
+        {
+            OpenHTMFile = 0;
+            OpenTheHTM();
+        }
+
+        if (GetTheLog == 1)
+        {
+            GetTheLog = 0;
+            GetLog();
+        }
+
+    }
+}

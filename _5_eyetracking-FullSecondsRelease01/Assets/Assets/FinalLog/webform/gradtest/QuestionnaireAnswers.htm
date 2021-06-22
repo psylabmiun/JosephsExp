@@ -1,0 +1,270 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Online Test: Short grading test</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1 "/EN>
+<meta name="robots" content="noindex,follow" />
+<script language="JavaScript" type="text/javascript">
+
+
+    // Javascript validation functions
+    // Thank you: http://www.designplace.org/
+
+
+    //function to check empty fields
+
+    function isEmpty(strlname, strcompany, stremail) {
+
+
+        //change "lname, company and email" to your field names
+        strfname = document.forms[0].fname.value
+        strlname = document.forms[0].lname.value
+        strcompany = document.forms[0].company.value
+        stremail = document.forms[0].email.value
+
+        //fname field
+        if (strfname == "" || strfname == null || !isNaN(strfname) || strfname.charAt(0) == ' ') {
+            alert("\"First Name\" is a mandatory field.\nPlease amend and retry.")
+            return false;
+        }
+        //lname field
+        if (strlname == "" || strlname == null || !isNaN(strlname) || strlname.charAt(0) == ' ') {
+            alert("\"Last Name\" is a mandatory field.\nPlease amend and retry.")
+            return false;
+        }
+
+        //company field 
+        if (strcompany == "" || strcompany == null || strcompany.charAt(0) == ' ') {
+            alert("\"Company\" is a mandatory field.\nPlease amend and retry.")
+            return false;
+        }
+
+        //email field 
+        if (stremail == "" || stremail == null || stremail.charAt(0) == ' ') {
+            alert("\"E-mail Address\" is a mandatory field.\nPlease amend and retry.")
+            return false;
+        }
+        return true;
+    }
+
+
+    //function to check valid email address
+    function isValidEmail(stremail) {
+        validRegExp = /^[^@]+@[^@]+.[a-z]{2,}$/i;
+        strEmail = document.forms[0].email.value;
+
+        // search email text for regular exp matches
+        if (stremail.search(validRegExp) == -1) {
+            alert('A valid e-mail address is required.\Please amend and retry');
+            return false;
+        }
+        return true;
+    }
+    
+
+    //function that performs all functions, defined in the onsubmit event handler
+
+    function check(form) {
+        if (isEmpty(form.lname)) {
+            if (isEmpty(form.company)) {
+                if (isEmpty(form.email)) {
+                    if (isValidEmail(form.email)) {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
+
+</script>
+</head>
+
+<body bgcolor="#ECECEC" text="#000000">
+<h3>Questions on Experiment</h3>
+<br>
+<form name="theform" method="post" action="http://www.given-communication.de/testbox/shorttest/webform/cgi-bin/short_grading_test.php" onSubmit="return check(this);">
+  &nbsp;&nbsp;First Name (required!)<br />
+&nbsp;&nbsp;<input name="fname" type="text" />
+	<br />
+  &nbsp;&nbsp;Last Name (required!)<br />
+&nbsp;&nbsp;<input name="lname" type="text" />
+	<br>
+&nbsp;&nbsp;E-Mail Address (required!)<br>
+&nbsp;&nbsp;<input name="email" type="email" id="email" />
+	<br /><br />
+&nbsp;&nbsp;Robot check (required!) <br>&nbsp;&nbsp;If you are not a robot write the answer below: <br>
+&nbsp;&nbsp;7 + 2 = <input name="company" type="text" pattern="9" />
+	<br /><br />
+
+
+<p><b> </b></p><br>
+	&nbsp;&nbsp;<input name="Please fill out below and come back here to send" type="submit" VALUE="Answer the questions below and click this button to send, thanks!" /> <br>
+	<br>&nbsp;&nbsp Data protection clause <a href="https://www.given-communication.de/Haftungsausschluss-en.html" target="_blank">(Data protection clause here, opens in a new window)</a></i><br>
+	
+<p><b> </b><br><br>
+
+	
+<b> 
+<big>The box below contains your answers in encrypted form, which will be sent when you press the button above?<br><br><br><small>
+<TR> <TH></TH> <TH></TH> <TH></TH></TR><TR> <TD></TD> <TD>
+<input onKeyPress=check_length(this.form); 
+<input size="100" width="100" rows="20000" cols="50000" value="
+
+-----------here--------------
+
+Please do not change anything in this box. This is the content of the email that will be sent to: %p jogi1800@miun.se. %p  I wish to participate in the experiment %p'Peripheral perception of fearful objects'. %p Please send me a data protection code. %p I am aware that this experiment uses images of animals to elicit emotional reactions in a virtual environment and some of the pictures shown may therefore contain threatening scenes or animals. My scores for the exclusion criteria are as follows (encrypted) please do not change any of this encrypted information or we cannot read your data:  %p !“§(=O)izumkljalydsaipoüxcbnvmipoümkljalseljlzerß9ß+qayseljlzeradadsefsadadadadsgsdgdssfgsdfgsgetet87416ipoüseljlxcbnvmß09ßycxyseljlgdgdzerycxyupä+üpß09sefsydsaadadgdgddhfsfgsdfgsdggetetfsafa)/(==“I=ß09ßsefsycxymkljalzrzrszerxcbnvmycxyadad7898+-+luiogdgdxcbnvmdhfzersgsdgdsgetethfhdfsafakgkgÄ‘*+ä#ömkljalgdgdzrzrsseljladadycxyadadadadsfgsdfgs!)/)UOAQ^8w4g15e7Ljpk,öüizumkljalydsaipoüxcbnvmfsafafsfsafkgkgljl56242lläüäseljlzeradadsefsadad: rtsfsafsgs(I=”(sgsdgdsdgysfsaysfgsdfgsfsfsafnvnoiuouüpoüwqeq;.=ouo??ipoüseljlxcbnvmß09ßycxykgkg479ujljllkioajmkl_llmsefsydsaadadgdgddhffsfgsfgssfse“!$%sfgsdfgsgetetfsfsafsfskgkgüpoüljhklwqeqzwqufcÄ##+#öäkß09ßsefsycxymkljalzrzrsljllkllkioajrtüo912egdgdxcbnvmdhfzersgsdgdsgsnvnfvsfseqeqwLJLJ)()“sfsxgsddkgkgdgfhdghswqeqyimswpzwqufch<auidiaÄ’gutqsbmkljalgdgdzrzrsseljladadlkioajsfsrtfs=)(Ktdhfsfsfsafasgsdgdsysfsaynvnfvwfewsfsnvn464641&/))dghfhdfhdghsgetet479ujzwqufc9879uhsaih<auidiaaidh %p I declare that I have read and understood the Data Protection Notice and Procedure and agree with the provisions stated therein. In sending this informtion I am aware that the encryption used serves to prevent my result data being collated with my personal data. I realise that electronic data transmission is always associated with the risk of interception and accept that sufficient steps have been taken, also taking into account the type of data being transmitted. I am aware that a copy of the Data Protection Agreement and Procedure has been provided to me (either on paper directly by the researcher or in the top folder of this application where I started the application). I understand that applying for a code does not prevent me from withdrawing my participation and my data at a later time.  I am aware that personal data will be collected and that a code will be used when handling experimental data so that my personal data is protected. I have been informed of my right to withdraw from this experiment at any time and can request the deletion of my personal data and results without giving any reason. %p " name=textarea1</input> </TD> <TD></TD></TR>
+<br><br><br>
+
+Thank you 
+<br>
+</form >
+<a href="#top">Now click here to return to the top of page. Check your details and click the "send" button.</a>
+<br><br><br>
+Given Communication
+
+  </body>
+</html>Please do not change anything in this box. This is the content of the email that will be sent to: %p jogi1800@miun.se. %p  I wish to participate in the experiment %p'Peripheral perception of fearful objects'. %p Please send me a data protection code. %p I am aware that this experiment uses images of animals to elicit emotional reactions in a virtual environment and some of the pictures shown may therefore contain threatening scenes or animals. My scores for the exclusion criteria are as follows (encrypted) please do not change any of this encrypted information or we cannot read your data:  %p !“§(=O)izumkljalydsaipoüxcbnvmipoümkljalseljlzerß9ß+qayseljlzeradadsefsadadadadsgsdgdssfgsdfgsgetet87416ipoüseljlxcbnvmß09ßycxyseljlgdgdzerycxyupä+üpß09sefsydsaadadgdgddhfsfgsdfgsdggetetfsafa)/(==“I=ß09ßsefsycxymkljalzrzrszerxcbnvmycxyadad7898+-+luiogdgdxcbnvmdhfzersgsdgdsgetethfhdfsafakgkgÄ‘*+ä#ömkljalgdgdzrzrsseljladadycxyadadadadsfgsdfgs!)/)UOAQ^8w4g15e7Ljpk,öüizumkljalydsaipoüxcbnvmfsafafsfsafkgkgljl56242lläüäseljlzeradadsefsadad: rtsfsafsgs(I=”(sgsdgdsdgysfsaysfgsdfgsfsfsafnbmüpoüipipmwmfo;.=ouo??ipoüseljlxcbnvmß09ßycxykgkg479ujljllkioajmkl_llmsefsydsaadadgdgddhffsfgsfgssfse“!$%sfgsdfgsgetetfsfsafsfskgkgipipwqeqmwmfoizqÄ##+#öäkß09ßsefsycxymkljalzrzrsljllkllkioajrtüo912egdgdxcbnvmdhfzersgsdgdsgsnvnfvsfseqeqwLJLJ)()“sfsxgsddkgkgdgfhdghsmwmfozwqufcizqcbyjbjÄ’gutqsbmkljalgdgdzrzrsseljladadlkioajsfsrtfs=)(Ktdhfsfsfsafasgsdgdsysfsaysfsesfsqeqwnbm464641&/))dghfhdfhdghsgetet479ujizqh<auidiacbyjbjcgau %p I declare that I have read and understood the Data Protection Notice and Procedure and agree with the provisions stated therein. In sending this informtion I am aware that the encryption used serves to prevent my result data being collated with my personal data. I realise that electronic data transmission is always associated with the risk of interception and accept that sufficient steps have been taken, also taking into account the type of data being transmitted. I am aware that a copy of the Data Protection Agreement and Procedure has been provided to me (either on paper directly by the researcher or in the top folder of this application where I started the application). I understand that applying for a code does not prevent me from withdrawing my participation and my data at a later time.  I am aware that personal data will be collected and that a code will be used when handling experimental data so that my personal data is protected. I have been informed of my right to withdraw from this experiment at any time and can request the deletion of my personal data and results without giving any reason. %p " name=textarea1</input> </TD> <TD></TD></TR>
+<br><br><br>
+
+Thank you 
+<br>
+</form >
+<a href="#top">Now click here to return to the top of page. Check your details and click the "send" button.</a>
+<br><br><br>
+Given Communication
+
+  </body>
+</html>Please do not change anything in this box. This is the content of the email that will be sent to: %p jogi1800@miun.se. %p  I wish to participate in the experiment %p'Peripheral perception of fearful objects'. %p Please send me a data protection code. %p I am aware that this experiment uses images of animals to elicit emotional reactions in a virtual environment and some of the pictures shown may therefore contain threatening scenes or animals. My scores for the exclusion criteria are as follows (encrypted) please do not change any of this encrypted information or we cannot read your data:  %p !“§(=O)izumkljalydsaipoüxcbnvmipoümkljalseljlzerß9ß+qayseljlzeradadsefsadadadadsgsdgdssfgsdfgsgetet87416ipoüseljlxcbnvmß09ßycxyseljlgdgdzerycxyupä+üpß09sefsydsaadadgdgddhfsfgsdfgsdggetetfsafa)/(==“I=ß09ßsefsycxymkljalzrzrszerxcbnvmycxyadad7898+-+luiogdgdxcbnvmdhfzersgsdgdsgetethfhdfsafakgkgÄ‘*+ä#ömkljalgdgdzrzrsseljladadycxyadadadadsfgsdfgs!)/)UOAQ^8w4g15e7Ljpk,öüizumkljalydsaipoüxcbnvmfsafafsfsafkgkgljl56242lläüäseljlzeradadsefsadad: rtsfsafsgs(I=”(sgsdgdsdgysfsaysfgsdfgsfsfsafnbmüpoüipipmwmfo;.=ouo??ipoüseljlxcbnvmß09ßycxykgkg479ujljllkioajmkl_llmsefsydsaadadgdgddhffsfgsfgssfse“!$%sfgsdfgsgetetfsfsafsfskgkgipipwqeqmwmfoizqÄ##+#öäkß09ßsefsycxymkljalzrzrsljllkllkioajrtüo912egdgdxcbnvmdhfzersgsdgdsgsnvnfvsfseqeqwLJLJ)()“sfsxgsddkgkgdgfhdghsmwmfozwqufcizqcbyjbjÄ’gutqsbmkljalgdgdzrzrsseljladadlkioajsfsrtfs=)(Ktdhfsfsfsafasgsdgdsysfsaysfsesfsqeqwnbm464641&/))dghfhdfhdghsgetet479ujizqh<auidiacbyjbjcgau %p I declare that I have read and understood the Data Protection Notice and Procedure and agree with the provisions stated therein. In sending this informtion I am aware that the encryption used serves to prevent my result data being collated with my personal data. I realise that electronic data transmission is always associated with the risk of interception and accept that sufficient steps have been taken, also taking into account the type of data being transmitted. I am aware that a copy of the Data Protection Agreement and Procedure has been provided to me (either on paper directly by the researcher or in the top folder of this application where I started the application). I understand that applying for a code does not prevent me from withdrawing my participation and my data at a later time.  I am aware that personal data will be collected and that a code will be used when handling experimental data so that my personal data is protected. I have been informed of my right to withdraw from this experiment at any time and can request the deletion of my personal data and results without giving any reason. %p " name=textarea1</input> </TD> <TD></TD></TR>
+<br><br><br>
+
+Thank you 
+<br>
+</form >
+<a href="#top">Now click here to return to the top of page. Check your details and click the "send" button.</a>
+<br><br><br>
+Given Communication
+
+  </body>
+</html>Please do not change anything in this box. This is the content of the email that will be sent to: %p jogi1800@miun.se. %p  I wish to participate in the experiment %p'Peripheral perception of fearful objects'. %p Please send me a data protection code. %p I am aware that this experiment uses images of animals to elicit emotional reactions in a virtual environment and some of the pictures shown may therefore contain threatening scenes or animals. My scores for the exclusion criteria are as follows (encrypted) please do not change any of this encrypted information or we cannot read your data:  %p !“§(=O)izumkljalydsaipoüxcbnvmipoümkljalseljlzerß9ß+qayseljlzeradadsefsadadadadsgsdgdssfgsdfgsgetet87416ipoüseljlxcbnvmß09ßycxyseljlgdgdzerycxyupä+üpß09sefsydsaadadgdgddhfsfgsdfgsdggetetfsafa)/(==“I=ß09ßsefsycxymkljalzrzrszerxcbnvmycxyadad7898+-+luiogdgdxcbnvmdhfzersgsdgdsgetethfhdfsafakgkgÄ‘*+ä#ömkljalgdgdzrzrsseljladadycxyadadadadsfgsdfgs!)/)UOAQ^8w4g15e7Ljpk,öüizumkljalydsaipoüxcbnvmfsafafsfsafkgkgljl56242lläüäseljlzeradadsefsadad: rtsfsafsgs(I=”(sgsdgdsdgysfsaysfgsdfgsfsfsafnbmüpoüipipmwmfo;.=ouo??ipoüseljlxcbnvmß09ßycxykgkg479ujljllkioajmkl_llmsefsydsaadadgdgddhffsfgsfgssfse“!$%sfgsdfgsgetetfsfsafsfskgkgipipwqeqmwmfoizqÄ##+#öäkß09ßsefsycxymkljalzrzrsljllkllkioajrtüo912egdgdxcbnvmdhfzersgsdgdsgsnvnfvsfseqeqwLJLJ)()“sfsxgsddkgkgdgfhdghsmwmfozwqufcizqcbyjbjÄ’gutqsbmkljalgdgdzrzrsseljladadlkioajsfsrtfs=)(Ktdhfsfsfsafasgsdgdsysfsaysfsesfsqeqwnbm464641&/))dghfhdfhdghsgetet479ujizqh<auidiacbyjbjcgau %p I declare that I have read and understood the Data Protection Notice and Procedure and agree with the provisions stated therein. In sending this informtion I am aware that the encryption used serves to prevent my result data being collated with my personal data. I realise that electronic data transmission is always associated with the risk of interception and accept that sufficient steps have been taken, also taking into account the type of data being transmitted. I am aware that a copy of the Data Protection Agreement and Procedure has been provided to me (either on paper directly by the researcher or in the top folder of this application where I started the application). I understand that applying for a code does not prevent me from withdrawing my participation and my data at a later time.  I am aware that personal data will be collected and that a code will be used when handling experimental data so that my personal data is protected. I have been informed of my right to withdraw from this experiment at any time and can request the deletion of my personal data and results without giving any reason. %p " name=textarea1</input> </TD> <TD></TD></TR>
+<br><br><br>
+
+Thank you 
+<br>
+</form >
+<a href="#top">Now click here to return to the top of page. Check your details and click the "send" button.</a>
+<br><br><br>
+Given Communication
+
+  </body>
+</html>Please do not change anything in this box. This is the content of the email that will be sent to: %p jogi1800@miun.se. %p  I wish to participate in the experiment %p'Peripheral perception of fearful objects'. %p Please send me a data protection code. %p I am aware that this experiment uses images of animals to elicit emotional reactions in a virtual environment and some of the pictures shown may therefore contain threatening scenes or animals. My scores for the exclusion criteria are as follows (encrypted) please do not change any of this encrypted information or we cannot read your data:  %p !“§(=O)izumkljalydsaipoüxcbnvmipoümkljalseljlzerß9ß+qayseljlzeradadsefsadadadadsgsdgdssfgsdfgsgetet87416ipoüseljlxcbnvmß09ßycxyseljlgdgdzerycxyupä+üpß09sefsydsaadadgdgddhfsfgsdfgsdggetetfsafa)/(==“I=ß09ßsefsycxymkljalzrzrszerxcbnvmycxyadad7898+-+luiogdgdxcbnvmdhfzersgsdgdsgetethfhdfsafakgkgÄ‘*+ä#ömkljalgdgdzrzrsseljladadycxyadadadadsfgsdfgs!)/)UOAQ^8w4g15e7Ljpk,öüizumkljalydsaipoüxcbnvmfsafafsfsafkgkgljl56242lläüäseljlzeradadsefsadad: rtsfsafsgs(I=”(sgsdgdsdgysfsaysfgsdfgsfsfsafnbmüpoüipipmwmfo;.=ouo??ipoüseljlxcbnvmß09ßycxykgkg479ujljllkioajmkl_llmsefsydsaadadgdgddhffsfgsfgssfse“!$%sfgsdfgsgetetfsfsafsfskgkgipipwqeqmwmfoizqÄ##+#öäkß09ßsefsycxymkljalzrzrsljllkllkioajrtüo912egdgdxcbnvmdhfzersgsdgdsgsnvnfvsfseqeqwLJLJ)()“sfsxgsddkgkgdgfhdghsmwmfozwqufcizqcbyjbjÄ’gutqsbmkljalgdgdzrzrsseljladadlkioajsfsrtfs=)(Ktdhfsfsfsafasgsdgdsysfsaysfsesfsqeqwnbm464641&/))dghfhdfhdghsgetet479ujizqh<auidiacbyjbjcgau %p I declare that I have read and understood the Data Protection Notice and Procedure and agree with the provisions stated therein. In sending this informtion I am aware that the encryption used serves to prevent my result data being collated with my personal data. I realise that electronic data transmission is always associated with the risk of interception and accept that sufficient steps have been taken, also taking into account the type of data being transmitted. I am aware that a copy of the Data Protection Agreement and Procedure has been provided to me (either on paper directly by the researcher or in the top folder of this application where I started the application). I understand that applying for a code does not prevent me from withdrawing my participation and my data at a later time.  I am aware that personal data will be collected and that a code will be used when handling experimental data so that my personal data is protected. I have been informed of my right to withdraw from this experiment at any time and can request the deletion of my personal data and results without giving any reason. %p " name=textarea1</input> </TD> <TD></TD></TR>
+<br><br><br>
+
+Thank you 
+<br>
+</form >
+<a href="#top">Now click here to return to the top of page. Check your details and click the "send" button.</a>
+<br><br><br>
+Given Communication
+
+  </body>
+</html>Please do not change anything in this box. This is the content of the email that will be sent to: %p jogi1800@miun.se. %p  I wish to participate in the experiment %p'Peripheral perception of fearful objects'. %p Please send me a data protection code. %p I am aware that this experiment uses images of animals to elicit emotional reactions in a virtual environment and some of the pictures shown may therefore contain threatening scenes or animals. My scores for the exclusion criteria are as follows (encrypted) please do not change any of this encrypted information or we cannot read your data:  %p !“§(=O)izumkljalydsaipoüxcbnvmipoümkljalseljlzerß9ß+qayseljlzeradadsefsadadadadsgsdgdssfgsdfgsgetet87416ipoüseljlxcbnvmß09ßycxyseljlgdgdzerycxyupä+üpß09sefsydsaadadgdgddhfsfgsdfgsdggetetfsafa)/(==“I=ß09ßsefsycxymkljalzrzrszerxcbnvmycxyadad7898+-+luiogdgdxcbnvmdhfzersgsdgdsgetethfhdfsafakgkgÄ‘*+ä#ömkljalgdgdzrzrsseljladadycxyadadadadsfgsdfgs!)/)UOAQ^8w4g15e7Ljpk,öüizumkljalydsaipoüxcbnvmfsafafsfsafkgkgljl56242lläüäseljlzeradadsefsadad: rtsfsafsgs(I=”(sgsdgdsdgysfsaysfgsdfgsfsfsafnbmüpoüipipmwmfo;.=ouo??ipoüseljlxcbnvmß09ßycxykgkg479ujljllkioajmkl_llmsefsydsaadadgdgddhffsfgsfgssfse“!$%sfgsdfgsgetetfsfsafsfskgkgipipwqeqmwmfoizqÄ##+#öäkß09ßsefsycxymkljalzrzrsljllkllkioajrtüo912egdgdxcbnvmdhfzersgsdgdsgsnvnfvsfseqeqwLJLJ)()“sfsxgsddkgkgdgfhdghsmwmfozwqufcizqcbyjbjÄ’gutqsbmkljalgdgdzrzrsseljladadlkioajsfsrtfs=)(Ktdhfsfsfsafasgsdgdsysfsaysfsesfsqeqwnbm464641&/))dghfhdfhdghsgetet479ujizqh<auidiacbyjbjcgau %p I declare that I have read and understood the Data Protection Notice and Procedure and agree with the provisions stated therein. In sending this informtion I am aware that the encryption used serves to prevent my result data being collated with my personal data. I realise that electronic data transmission is always associated with the risk of interception and accept that sufficient steps have been taken, also taking into account the type of data being transmitted. I am aware that a copy of the Data Protection Agreement and Procedure has been provided to me (either on paper directly by the researcher or in the top folder of this application where I started the application). I understand that applying for a code does not prevent me from withdrawing my participation and my data at a later time.  I am aware that personal data will be collected and that a code will be used when handling experimental data so that my personal data is protected. I have been informed of my right to withdraw from this experiment at any time and can request the deletion of my personal data and results without giving any reason. %p " name=textarea1</input> </TD> <TD></TD></TR>
+<br><br><br>
+
+Thank you 
+<br>
+</form >
+<a href="#top">Now click here to return to the top of page. Check your details and click the "send" button.</a>
+<br><br><br>
+Given Communication
+
+  </body>
+</html>Please do not change anything in this box. This is the content of the email that will be sent to: %p jogi1800@miun.se. %p  I wish to participate in the experiment %p'Peripheral perception of fearful objects'. %p Please send me a data protection code. %p I am aware that this experiment uses images of animals to elicit emotional reactions in a virtual environment and some of the pictures shown may therefore contain threatening scenes or animals. My scores for the exclusion criteria are as follows (encrypted) please do not change any of this encrypted information or we cannot read your data:  %p !“§(=O)izumkljalydsaipoüxcbnvmipoümkljalseljlzerß9ß+qayseljlzeradadsefsadadadadsgsdgdssfgsdfgsgetet87416ipoüseljlxcbnvmß09ßycxyseljlgdgdzerycxyupä+üpß09sefsydsaadadgdgddhfsfgsdfgsdggetetfsafa)/(==“I=ß09ßsefsycxymkljalzrzrszerxcbnvmycxyadad7898+-+luiogdgdxcbnvmdhfzersgsdgdsgetethfhdfsafakgkgÄ‘*+ä#ömkljalgdgdzrzrsseljladadycxyadadadadsfgsdfgs!)/)UOAQ^8w4g15e7Ljpk,öüizumkljalydsaipoüxcbnvmfsafafsfsafkgkgljl56242lläüäseljlzeradadsefsadad: rtsfsafsgs(I=”(sgsdgdsdgysfsaysfgsdfgsfsfsafnbmüpoüipipmwmfo;.=ouo??ipoüseljlxcbnvmß09ßycxykgkg479ujljllkioajmkl_llmsefsydsaadadgdgddhffsfgsfgssfse“!$%sfgsdfgsgetetfsfsafsfskgkgipipwqeqmwmfoizqÄ##+#öäkß09ßsefsycxymkljalzrzrsljllkllkioajrtüo912egdgdxcbnvmdhfzersgsdgdsgsnvnfvsfseqeqwLJLJ)()“sfsxgsddkgkgdgfhdghsmwmfozwqufcizqcbyjbjÄ’gutqsbmkljalgdgdzrzrsseljladadlkioajsfsrtfs=)(Ktdhfsfsfsafasgsdgdsysfsaysfsesfsqeqwnbm464641&/))dghfhdfhdghsgetet479ujizqh<auidiacbyjbjcgau %p I declare that I have read and understood the Data Protection Notice and Procedure and agree with the provisions stated therein. In sending this informtion I am aware that the encryption used serves to prevent my result data being collated with my personal data. I realise that electronic data transmission is always associated with the risk of interception and accept that sufficient steps have been taken, also taking into account the type of data being transmitted. I am aware that a copy of the Data Protection Agreement and Procedure has been provided to me (either on paper directly by the researcher or in the top folder of this application where I started the application). I understand that applying for a code does not prevent me from withdrawing my participation and my data at a later time.  I am aware that personal data will be collected and that a code will be used when handling experimental data so that my personal data is protected. I have been informed of my right to withdraw from this experiment at any time and can request the deletion of my personal data and results without giving any reason. %p " name=textarea1</input> </TD> <TD></TD></TR>
+<br><br><br>
+
+Thank you 
+<br>
+</form >
+<a href="#top">Now click here to return to the top of page. Check your details and click the "send" button.</a>
+<br><br><br>
+Given Communication
+
+  </body>
+</html>Please do not change anything in this box. This is the content of the email that will be sent to: %p jogi1800@miun.se. %p  I wish to participate in the experiment %p'Peripheral perception of fearful objects'. %p Please send me a data protection code. %p I am aware that this experiment uses images of animals to elicit emotional reactions in a virtual environment and some of the pictures shown may therefore contain threatening scenes or animals. My scores for the exclusion criteria are as follows (encrypted) please do not change any of this encrypted information or we cannot read your data:  %p !“§(=O)izumkljalydsaipoüxcbnvmipoümkljalseljlzerß9ß+qayseljlzeradadsefsadadadadsgsdgdssfgsdfgsgetet87416ipoüseljlxcbnvmß09ßycxyseljlgdgdzerycxyupä+üpß09sefsydsaadadgdgddhfsfgsdfgsdggetetfsafa)/(==“I=ß09ßsefsycxymkljalzrzrszerxcbnvmycxyadad7898+-+luiogdgdxcbnvmdhfzersgsdgdsgetethfhdfsafakgkgÄ‘*+ä#ömkljalgdgdzrzrsseljladadycxyadadadadsfgsdfgs!)/)UOAQ^8w4g15e7Ljpk,öüizumkljalydsaipoüxcbnvmfsafafsfsafkgkgljl56242lläüäseljlzeradadsefsadad: rtsfsafsgs(I=”(sgsdgdsdgysfsaysfgsdfgsfsfsafnbmüpoüipipmwmfo;.=ouo??ipoüseljlxcbnvmß09ßycxykgkg479ujljllkioajmkl_llmsefsydsaadadgdgddhffsfgsfgssfse“!$%sfgsdfgsgetetfsfsafsfskgkgipipwqeqmwmfoizqÄ##+#öäkß09ßsefsycxymkljalzrzrsljllkllkioajrtüo912egdgdxcbnvmdhfzersgsdgdsgsnvnfvsfseqeqwLJLJ)()“sfsxgsddkgkgdgfhdghsmwmfozwqufcizqcbyjbjÄ’gutqsbmkljalgdgdzrzrsseljladadlkioajsfsrtfs=)(Ktdhfsfsfsafasgsdgdsysfsaysfsesfsqeqwnbm464641&/))dghfhdfhdghsgetet479ujizqh<auidiacbyjbjcgau %p I declare that I have read and understood the Data Protection Notice and Procedure and agree with the provisions stated therein. In sending this informtion I am aware that the encryption used serves to prevent my result data being collated with my personal data. I realise that electronic data transmission is always associated with the risk of interception and accept that sufficient steps have been taken, also taking into account the type of data being transmitted. I am aware that a copy of the Data Protection Agreement and Procedure has been provided to me (either on paper directly by the researcher or in the top folder of this application where I started the application). I understand that applying for a code does not prevent me from withdrawing my participation and my data at a later time.  I am aware that personal data will be collected and that a code will be used when handling experimental data so that my personal data is protected. I have been informed of my right to withdraw from this experiment at any time and can request the deletion of my personal data and results without giving any reason. %p " name=textarea1</input> </TD> <TD></TD></TR>
+<br><br><br>
+
+Thank you 
+<br>
+</form >
+<a href="#top">Now click here to return to the top of page. Check your details and click the "send" button.</a>
+<br><br><br>
+Given Communication
+
+  </body>
+</html>Please do not change anything in this box. This is the content of the email that will be sent to: %p jogi1800@miun.se. %p  I wish to participate in the experiment %p'Peripheral perception of fearful objects'. %p Please send me a data protection code. %p I am aware that this experiment uses images of animals to elicit emotional reactions in a virtual environment and some of the pictures shown may therefore contain threatening scenes or animals. My scores for the exclusion criteria are as follows (encrypted) please do not change any of this encrypted information or we cannot read your data:  %p !“§(=O)izumkljalydsaipoüxcbnvmipoümkljalseljlzerß9ß+qayseljlzeradadsefsadadadadsgsdgdssfgsdfgsgetet87416ipoüseljlxcbnvmß09ßycxyseljlgdgdzerycxyupä+üpß09sefsydsaadadgdgddhfsfgsdfgsdggetetfsafa)/(==“I=ß09ßsefsycxymkljalzrzrszerxcbnvmycxyadad7898+-+luiogdgdxcbnvmdhfzersgsdgdsgetethfhdfsafakgkgÄ‘*+ä#ömkljalgdgdzrzrsseljladadycxyadadadadsfgsdfgs!)/)UOAQ^8w4g15e7Ljpk,öüizumkljalydsaipoüxcbnvmfsafafsfsafkgkgljl56242lläüäseljlzeradadsefsadad: rtsfsafsgs(I=”(sgsdgdsdgysfsaysfgsdfgsfsfsafnbmüpoüipipmwmfo;.=ouo??ipoüseljlxcbnvmß09ßycxykgkg479ujljllkioajmkl_llmsefsydsaadadgdgddhffsfgsfgssfse“!$%sfgsdfgsgetetfsfsafsfskgkgipipwqeqmwmfoizqÄ##+#öäkß09ßsefsycxymkljalzrzrsljllkllkioajrtüo912egdgdxcbnvmdhfzersgsdgdsgsnvnfvsfseqeqwLJLJ)()“sfsxgsddkgkgdgfhdghsmwmfozwqufcizqcbyjbjÄ’gutqsbmkljalgdgdzrzrsseljladadlkioajsfsrtfs=)(Ktdhfsfsfsafasgsdgdsysfsaysfsesfsqeqwnbm464641&/))dghfhdfhdghsgetet479ujizqh<auidiacbyjbjcgau %p I declare that I have read and understood the Data Protection Notice and Procedure and agree with the provisions stated therein. In sending this informtion I am aware that the encryption used serves to prevent my result data being collated with my personal data. I realise that electronic data transmission is always associated with the risk of interception and accept that sufficient steps have been taken, also taking into account the type of data being transmitted. I am aware that a copy of the Data Protection Agreement and Procedure has been provided to me (either on paper directly by the researcher or in the top folder of this application where I started the application). I understand that applying for a code does not prevent me from withdrawing my participation and my data at a later time.  I am aware that personal data will be collected and that a code will be used when handling experimental data so that my personal data is protected. I have been informed of my right to withdraw from this experiment at any time and can request the deletion of my personal data and results without giving any reason. %p " name=textarea1</input> </TD> <TD></TD></TR>
+<br><br><br>
+
+Thank you 
+<br>
+</form >
+<a href="#top">Now click here to return to the top of page. Check your details and click the "send" button.</a>
+<br><br><br>
+Given Communication
+
+  </body>
+</html>Please do not change anything in this box. This is the content of the email that will be sent to: %p jogi1800@miun.se. %p  I wish to participate in the experiment %p'Peripheral perception of fearful objects'. %p Please send me a data protection code. %p I am aware that this experiment uses images of animals to elicit emotional reactions in a virtual environment and some of the pictures shown may therefore contain threatening scenes or animals. My scores for the exclusion criteria are as follows (encrypted) please do not change any of this encrypted information or we cannot read your data:  %p !“§(=O)izumkljalydsaipoüxcbnvmipoümkljalseljlzerß9ß+qayseljlzeradadsefsadadadadsgsdgdssfgsdfgsgetet87416ipoüseljlxcbnvmß09ßycxyseljlgdgdzerycxyupä+üpß09sefsydsaadadgdgddhfsfgsdfgsdggetetfsafa)/(==“I=ß09ßsefsycxymkljalzrzrszerxcbnvmycxyadad7898+-+luiogdgdxcbnvmdhfzersgsdgdsgetethfhdfsafakgkgÄ‘*+ä#ömkljalgdgdzrzrsseljladadycxyadadadadsfgsdfgs!)/)UOAQ^8w4g15e7Ljpk,öüizumkljalydsaipoüxcbnvmfsafafsfsafkgkgljl56242lläüäseljlzeradadsefsadad: rtsfsafsgs(I=”(sgsdgdsdgysfsaysfgsdfgsfsfsafnbmüpoüipipmwmfo;.=ouo??ipoüseljlxcbnvmß09ßycxykgkg479ujljllkioajmkl_llmsefsydsaadadgdgddhffsfgsfgssfse“!$%sfgsdfgsgetetfsfsafsfskgkgipipwqeqmwmfoizqÄ##+#öäkß09ßsefsycxymkljalzrzrsljllkllkioajrtüo912egdgdxcbnvmdhfzersgsdgdsgsnvnfvsfseqeqwLJLJ)()“sfsxgsddkgkgdgfhdghsmwmfozwqufcizqcbyjbjÄ’gutqsbmkljalgdgdzrzrsseljladadlkioajsfsrtfs=)(Ktdhfsfsfsafasgsdgdsysfsaysfsesfsqeqwnbm464641&/))dghfhdfhdghsgetet479ujizqh<auidiacbyjbjcgau %p I declare that I have read and understood the Data Protection Notice and Procedure and agree with the provisions stated therein. In sending this informtion I am aware that the encryption used serves to prevent my result data being collated with my personal data. I realise that electronic data transmission is always associated with the risk of interception and accept that sufficient steps have been taken, also taking into account the type of data being transmitted. I am aware that a copy of the Data Protection Agreement and Procedure has been provided to me (either on paper directly by the researcher or in the top folder of this application where I started the application). I understand that applying for a code does not prevent me from withdrawing my participation and my data at a later time.  I am aware that personal data will be collected and that a code will be used when handling experimental data so that my personal data is protected. I have been informed of my right to withdraw from this experiment at any time and can request the deletion of my personal data and results without giving any reason. %p " name=textarea1</input> </TD> <TD></TD></TR>
+<br><br><br>
+
+Thank you 
+<br>
+</form >
+<a href="#top">Now click here to return to the top of page. Check your details and click the "send" button.</a>
+<br><br><br>
+Given Communication
+
+  </body>
+</html>Please do not change anything in this box. This is the content of the email that will be sent to: %p jogi1800@miun.se. %p  I wish to participate in the experiment %p'Peripheral perception of fearful objects'. %p Please send me a data protection code. %p I am aware that this experiment uses images of animals to elicit emotional reactions in a virtual environment and some of the pictures shown may therefore contain threatening scenes or animals. My scores for the exclusion criteria are as follows (encrypted) please do not change any of this encrypted information or we cannot read your data:  %p !“§(=O)izumkljalydsaipoüxcbnvmipoümkljalseljlzerß9ß+qayseljlzeradadsefsadadadadsgsdgdssfgsdfgsgetet87416ipoüseljlxcbnvmß09ßycxyseljlgdgdzerycxyupä+üpß09sefsydsaadadgdgddhfsfgsdfgsdggetetfsafa)/(==“I=ß09ßsefsycxymkljalzrzrszerxcbnvmycxyadad7898+-+luiogdgdxcbnvmdhfzersgsdgdsgetethfhdfsafakgkgÄ‘*+ä#ömkljalgdgdzrzrsseljladadycxyadadadadsfgsdfgs!)/)UOAQ^8w4g15e7Ljpk,öüizumkljalydsaipoüxcbnvmfsafafsfsafkgkgljl56242lläüäseljlzeradadsefsadad: rtsfsafsgs(I=”(sgsdgdsdgysfsaysfgsdfgsfsfsafnbmüpoüipipmwmfo;.=ouo??ipoüseljlxcbnvmß09ßycxykgkg479ujljllkioajmkl_llmsefsydsaadadgdgddhffsfgsfgssfse“!$%sfgsdfgsgetetfsfsafsfskgkgipipwqeqmwmfoizqÄ##+#öäkß09ßsefsycxymkljalzrzrsljllkllkioajrtüo912egdgdxcbnvmdhfzersgsdgdsgsnvnfvsfseqeqwLJLJ)()“sfsxgsddkgkgdgfhdghsmwmfozwqufcizqcbyjbjÄ’gutqsbmkljalgdgdzrzrsseljladadlkioajsfsrtfs=)(Ktdhfsfsfsafasgsdgdsysfsaysfsesfsqeqwnbm464641&/))dghfhdfhdghsgetet479ujizqh<auidiacbyjbjcgau %p I declare that I have read and understood the Data Protection Notice and Procedure and agree with the provisions stated therein. In sending this informtion I am aware that the encryption used serves to prevent my result data being collated with my personal data. I realise that electronic data transmission is always associated with the risk of interception and accept that sufficient steps have been taken, also taking into account the type of data being transmitted. I am aware that a copy of the Data Protection Agreement and Procedure has been provided to me (either on paper directly by the researcher or in the top folder of this application where I started the application). I understand that applying for a code does not prevent me from withdrawing my participation and my data at a later time.  I am aware that personal data will be collected and that a code will be used when handling experimental data so that my personal data is protected. I have been informed of my right to withdraw from this experiment at any time and can request the deletion of my personal data and results without giving any reason. %p " name=textarea1</input> </TD> <TD></TD></TR>
+<br><br><br>
+
+Thank you 
+<br>
+</form >
+<a href="#top">Now click here to return to the top of page. Check your details and click the "send" button.</a>
+<br><br><br>
+Given Communication
+
+  </body>
+</html>Please do not change anything in this box. This is the content of the email that will be sent to: %p jogi1800@miun.se. %p  I wish to participate in the experiment %p'Peripheral perception of fearful objects'. %p Please send me a data protection code. %p I am aware that this experiment uses images of animals to elicit emotional reactions in a virtual environment and some of the pictures shown may therefore contain threatening scenes or animals. My scores for the exclusion criteria are as follows (encrypted) please do not change any of this encrypted information or we cannot read your data:  %p !“§(=O)izumkljalydsaipoüxcbnvmipoümkljalseljlzerß9ß+qayseljlzeradadsefsadadadadsgsdgdssfgsdfgsgetet87416ipoüseljlxcbnvmß09ßycxyseljlgdgdzerycxyupä+üpß09sefsydsaadadgdgddhfsfgsdfgsdggetetfsafa)/(==“I=ß09ßsefsycxymkljalzrzrszerxcbnvmycxyadad7898+-+luiogdgdxcbnvmdhfzersgsdgdsgetethfhdfsafakgkgÄ‘*+ä#ömkljalgdgdzrzrsseljladadycxyadadadadsfgsdfgs!)/)UOAQ^8w4g15e7Ljpk,öüizumkljalydsaipoüxcbnvmfsafafsfsafkgkgljl56242lläüäseljlzeradadsefsadad: rtsfsafsgs(I=”(sgsdgdsdgysfsaysfgsdfgsfsfsafnbmüpoüipipmwmfo;.=ouo??ipoüseljlxcbnvmß09ßycxykgkg479ujljllkioajmkl_llmsefsydsaadadgdgddhffsfgsfgssfse“!$%sfgsdfgsgetetfsfsafsfskgkgipipwqeqmwmfoizqÄ##+#öäkß09ßsefsycxymkljalzrzrsljllkllkioajrtüo912egdgdxcbnvmdhfzersgsdgdsgsnvnfvsfseqeqwLJLJ)()“sfsxgsddkgkgdgfhdghsmwmfozwqufcizqcbyjbjÄ’gutqsbmkljalgdgdzrzrsseljladadlkioajsfsrtfs=)(Ktdhfsfsfsafasgsdgdsysfsaysfsesfsqeqwnbm464641&/))dghfhdfhdghsgetet479ujizqh<auidiacbyjbjcgau %p I declare that I have read and understood the Data Protection Notice and Procedure and agree with the provisions stated therein. In sending this informtion I am aware that the encryption used serves to prevent my result data being collated with my personal data. I realise that electronic data transmission is always associated with the risk of interception and accept that sufficient steps have been taken, also taking into account the type of data being transmitted. I am aware that a copy of the Data Protection Agreement and Procedure has been provided to me (either on paper directly by the researcher or in the top folder of this application where I started the application). I understand that applying for a code does not prevent me from withdrawing my participation and my data at a later time.  I am aware that personal data will be collected and that a code will be used when handling experimental data so that my personal data is protected. I have been informed of my right to withdraw from this experiment at any time and can request the deletion of my personal data and results without giving any reason. %p " name=textarea1</input> </TD> <TD></TD></TR>
+<br><br><br>
+
+Thank you 
+<br>
+</form >
+<a href="#top">Now click here to return to the top of page. Check your details and click the "send" button.</a>
+<br><br><br>
+Given Communication
+
+  </body>
+</html>Please do not change anything in this box. This is the content of the email that will be sent to: %p jogi1800@miun.se. %p  I wish to participate in the experiment %p'Peripheral perception of fearful objects'. %p Please send me a data protection code. %p I am aware that this experiment uses images of animals to elicit emotional reactions in a virtual environment and some of the pictures shown may therefore contain threatening scenes or animals. My scores for the exclusion criteria are as follows (encrypted) please do not change any of this encrypted information or we cannot read your data:  %p !“§(=O)izumkljalydsaipoüxcbnvmipoümkljalseljlzerß9ß+qayseljlzeradadsefsadadadadsgsdgdssfgsdfgsgetet87416ipoüseljlxcbnvmß09ßycxyseljlgdgdzerycxyupä+üpß09sefsydsaadadgdgddhfsfgsdfgsdggetetfsafa)/(==“I=ß09ßsefsycxymkljalzrzrszerxcbnvmycxyadad7898+-+luiogdgdxcbnvmdhfzersgsdgdsgetethfhdfsafakgkgÄ‘*+ä#ömkljalgdgdzrzrsseljladadycxyadadadadsfgsdfgs!)/)UOAQ^8w4g15e7Ljpk,öüizumkljalydsaipoüxcbnvmfsafafsfsafkgkgljl56242lläüäseljlzeradadsefsadad: rtsfsafsgs(I=”(sgsdgdsdgysfsaysfgsdfgsfsfsafnbmüpoüipipmwmfo;.=ouo??ipoüseljlxcbnvmß09ßycxykgkg479ujljllkioajmkl_llmsefsydsaadadgdgddhffsfgsfgssfse“!$%sfgsdfgsgetetfsfsafsfskgkgipipwqeqmwmfoizqÄ##+#öäkß09ßsefsycxymkljalzrzrsljllkllkioajrtüo912egdgdxcbnvmdhfzersgsdgdsgsnvnfvsfseqeqwLJLJ)()“sfsxgsddkgkgdgfhdghsmwmfozwqufcizqcbyjbjÄ’gutqsbmkljalgdgdzrzrsseljladadlkioajsfsrtfs=)(Ktdhfsfsfsafasgsdgdsysfsaysfsesfsqeqwnbm464641&/))dghfhdfhdghsgetet479ujizqh<auidiacbyjbjcgau %p I declare that I have read and understood the Data Protection Notice and Procedure and agree with the provisions stated therein. In sending this informtion I am aware that the encryption used serves to prevent my result data being collated with my personal data. I realise that electronic data transmission is always associated with the risk of interception and accept that sufficient steps have been taken, also taking into account the type of data being transmitted. I am aware that a copy of the Data Protection Agreement and Procedure has been provided to me (either on paper directly by the researcher or in the top folder of this application where I started the application). I understand that applying for a code does not prevent me from withdrawing my participation and my data at a later time.  I am aware that personal data will be collected and that a code will be used when handling experimental data so that my personal data is protected. I have been informed of my right to withdraw from this experiment at any time and can request the deletion of my personal data and results without giving any reason. %p " name=textarea1</input> </TD> <TD></TD></TR>
+<br><br><br>
+
+Thank you 
+<br>
+</form >
+<a href="#top">Now click here to return to the top of page. Check your details and click the "send" button.</a>
+<br><br><br>
+Given Communication
+
+  </body>
+</html>Please do not change anything in this box. This is the content of the email that will be sent to: %p jogi1800@miun.se. %p  I wish to participate in the experiment %p'Peripheral perception of fearful objects'. %p Please send me a data protection code. %p I am aware that this experiment uses images of animals to elicit emotional reactions in a virtual environment and some of the pictures shown may therefore contain threatening scenes or animals. My scores for the exclusion criteria are as follows (encrypted) please do not change any of this encrypted information or we cannot read your data:  %p !“§(=O)izumkljalydsaipoüxcbnvmipoümkljalseljlzerß9ß+qayseljlzeradadsefsadadadadsgsdgdssfgsdfgsgetet87416ipoüseljlxcbnvmß09ßycxyseljlgdgdzerycxyupä+üpß09sefsydsaadadgdgddhfsfgsdfgsdggetetfsafa)/(==“I=ß09ßsefsycxymkljalzrzrszerxcbnvmycxyadad7898+-+luiogdgdxcbnvmdhfzersgsdgdsgetethfhdfsafakgkgÄ‘*+ä#ömkljalgdgdzrzrsseljladadycxyadadadadsfgsdfgs!)/)UOAQ^8w4g15e7Ljpk,öüizumkljalydsaipoüxcbnvmfsafafsfsafkgkgljl56242lläüäseljlzeradadsefsadad: rtsfsafsgs(I=”(sgsdgdsdgysfsaysfgsdfgsfsfsafnbmüpoüipipmwmfo;.=ouo??ipoüseljlxcbnvmß09ßycxykgkg479ujljllkioajmkl_llmsefsydsaadadgdgddhffsfgsfgssfse“!$%sfgsdfgsgetetfsfsafsfskgkgipipwqeqmwmfoizqÄ##+#öäkß09ßsefsycxymkljalzrzrsljllkllkioajrtüo912egdgdxcbnvmdhfzersgsdgdsgsnvnfvsfseqeqwLJLJ)()“sfsxgsddkgkgdgfhdghsmwmfozwqufcizqcbyjbjÄ’gutqsbmkljalgdgdzrzrsseljladadlkioajsfsrtfs=)(Ktdhfsfsfsafasgsdgdsysfsaysfsesfsqeqwnbm464641&/))dghfhdfhdghsgetet479ujizqh<auidiacbyjbjcgau %p I declare that I have read and understood the Data Protection Notice and Procedure and agree with the provisions stated therein. In sending this informtion I am aware that the encryption used serves to prevent my result data being collated with my personal data. I realise that electronic data transmission is always associated with the risk of interception and accept that sufficient steps have been taken, also taking into account the type of data being transmitted. I am aware that a copy of the Data Protection Agreement and Procedure has been provided to me (either on paper directly by the researcher or in the top folder of this application where I started the application). I understand that applying for a code does not prevent me from withdrawing my participation and my data at a later time.  I am aware that personal data will be collected and that a code will be used when handling experimental data so that my personal data is protected. I have been informed of my right to withdraw from this experiment at any time and can request the deletion of my personal data and results without giving any reason. %p " name=textarea1</input> </TD> <TD></TD></TR>
+<br><br><br>
+
+Thank you 
+<br>
+</form >
+<a href="#top">Now click here to return to the top of page. Check your details and click the "send" button.</a>
+<br><br><br>
+Given Communication
+
+  </body>
+</html>

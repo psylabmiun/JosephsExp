@@ -1,0 +1,66 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class TestsessionFailedTryItAgain : MonoBehaviour
+{
+    public ExperimentalProcedure experimentalProcedureScript;
+    public TaskInstructionScript taskInstructionScript;
+    public TestsessionSuccess testsessionSuccess;
+
+    public GameObject TextTestSessionFailedOnce;
+    public GameObject TextTestSessionFailedTwice;
+    public static bool BoolTestSessionFailedOnce = false;
+    public static bool BoolTestSessionFailedTwice = false;
+
+    void Start()
+    {
+        BoolTestSessionFailedOnce = true;
+        Debug.Log("------------------------------------------THIS IS  " + "TestsessionFailedTryItAgain / Start() ");
+
+        if (TaskTestSession.IntTrialNo == 1)
+        {
+            Debug.Log("------------------------------------------THIS IS  " + "TestsessionFailedTryItAgain / Start(TaskTestSession.IntTrialNo == 1) ");
+            TextTestSessionFailedOnce.SetActive(true);
+            TextTestSessionFailedTwice.SetActive(false);
+            if (Input.GetKeyDown(KeyCode.Return))
+            {
+                ExperimentalProcedure.expProc = ExperimentalProcedure.ExpProc.taskInstruction;
+                ExperimentalProcedure.BooltaskInstruction = true;
+                ExperimentalProcedure.BooltaskScoreNotSufficient = false;
+                TaskInstructionScript.BoolBeenHereBefore = true;
+                BoolTestSessionFailedTwice = true;
+            }
+        }
+
+        else if (TaskTestSession.IntTrialNo == 2)
+        {
+            TextTestSessionFailedOnce.SetActive(false);
+            TextTestSessionFailedTwice.SetActive(true);
+            if (Input.GetKeyDown(KeyCode.Return))
+            {
+                ExperimentalProcedure.expProc = ExperimentalProcedure.ExpProc.taskPartOne;
+                ExperimentalProcedure.BooltaskPartOne = true;
+                ExperimentalProcedure.BooltaskInstruction = false;
+                ExperimentalProcedure.BooltaskScoreNotSufficient = false;
+                TaskInstructionScript.BoolBeenHereBefore = false;
+            }
+
+        }
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (ExperimentalProcedure.BooltaskScoreNotSufficient == true)
+        {
+            Start();
+
+        }
+        else
+        {
+            TextTestSessionFailedOnce.SetActive(false);
+            TextTestSessionFailedTwice.SetActive(false);
+        }
+    }
+}

@@ -1,0 +1,14 @@
+2020-06-06 18:48:19: -- Analysis Started by User Command
+2020-06-06 18:48:19: L: State file does not exist: C:/Users/beste/JosephUnity/5_eyetracking-L-FullSeconds/Assets/ViveSR/_gsdata_/_file_state_v4._gs
+2020-06-06 18:48:19: R: State file does not exist: E:/Data/Sicherung/JosephUnity/5_eyetracking-F-FullSeconds/Assets/ViveSR/_gsdata_/_file_state_v4._gs
+2020-06-06 18:48:19: /Scripts/Eye/Sample/SRanipal_AvatarEyeSample_v2.cs: Conflict: New files that differ
+2020-06-06 18:48:19: Analyze has finished with Conflicts. Resolve Conflicts by selecting the correct sync direction, then click Sync
+2020-06-06 18:48:19: Changes: 1, Conflicts: 1, CopyTime: 0, FixState: 97, Errors: 0, All: 197
+2020-06-06 18:48:19: -- Analysis Complete. Time 00:00:01, Speed: 197 files/s
+2020-06-06 18:48:19: 
+2020-06-06 18:48:30: === User Changed Action from 'CONFLICT' to 'COPY_FILE_RTOL' on item /Scripts/Eye/Sample/SRanipal_AvatarEyeSample_v2.cs
+2020-06-06 18:48:30: Done.
+2020-06-06 18:48:56: == Sync Started by User Command
+2020-06-06 18:48:57: Copy Over 'E:/Data/Sicherung/JosephUnity/5_eyetracking-F-FullSeconds/Assets/ViveSR/Scripts/Eye/Sample/SRanipal_AvatarEyeSample_v2.cs' -> 'C:/Users/beste/JosephUnity/5_eyetracking-L-FullSeconds/Assets/ViveSR/Scripts/Eye/Sample/SRanipal_AvatarEyeSample_v2.cs' (18.586) (User Action)
+2020-06-06 18:48:57: == Sync Complete. Time: 00:00:01, Speed: 1,25 MB/s, OK: 98, Errors: 0
+2020-06-06 18:48:57: 

@@ -1,0 +1,370 @@
+﻿using System;
+using System.Collections;
+using System.IO;
+using UnityEngine;
+
+public class TaskTestSession : MonoBehaviour
+{
+    //External scripts 
+    //Calling methods from external scripts 
+    public ExperimentalProcedure experimentalProcedureScript;
+    public MicInput micInputScript;//prepares and provides the mic input 
+    public VoiceResponse voiceResponseScript;
+    public ChangeMaterial changeMaterialScript;
+    public TaskInstructionScript taskInstructionScript; /*public script for the introductory texts to ensure that 
+    the test does not begin while the participant is still reading the instructions.*/
+
+
+    //Stimuli and lead in Materials
+    public Material[] TaskLeadInRenders;/*Array of introductory stimuli, Task0 (blank) 
+    and Fixation (+ cross) deployed as renders to blank planes to focus the viewer and 
+    give breaks between stimuli*/
+
+    //Task Stimuli sets for easy task, 1-4
+    public Material[] GetTaskFrameListA1;
+    public Material[] GetTaskFrameListA2;
+    public Material[] GetTaskFrameListA3;
+    public Material[] GetTaskFrameListA4;
+    //Task Stimuli depending on level
+    public enum GetTaskListA  //Array of Task Stimuli sets, not yet implemented.
+    {
+        GetTaskFrameListA1,
+        GetTaskFrameListA2,
+        GetTaskFrameListA3,
+        GetTaskFrameListA4,
+        GetTaskFrameListB1,
+        GetTaskFrameListB2,
+        GetTaskFrameListB3,
+        GetTaskFrameListB4
+    };
+    public GetTaskListA currentList;
+
+    //Task Stimuli sets for difficult task 1-4
+    public Material[] GetTaskFrameListB1;
+    public Material[] GetTaskFrameListB2;
+    public Material[] GetTaskFrameListB3;
+    public Material[] GetTaskFrameListB4;
+
+    public static Renderer rend; //
+
+    public int Usekeys;         /*Switch data for enabling key responses.
+    If set to 0, keys are unresponsive and deliver no data; if set to 1, keys are active 
+    and deliver yes/no data depending on the keys selected. During tests, these keys were 
+    "m" (yes) and "n" (no)*/
+
+    //Loops
+    public int MainIncrement;/*The main increment runs from 1 to 120 in steps of 1 with each stimulus, 
+    at each multiple of 15 it triggers the next IncrementForLoop
+    */
+    public int IncrementForLoop1;
+    public int IncrementForLoop2;
+    public int IncrementForLoop3;
+    public int IncrementForLoop4;
+    public int IncrementForLoop5;
+    public int IncrementForLoop6;
+    public int IncrementForLoop7;
+    public int IncrementForLoop8;
+    /*Increment data for the task stimuli (data sets of 30 trials
+    15 easy and 15 difficult), set initially to 0 and incremented to 14. At 15 each loop  
+    is halted and a second loop of 15 begins for the difficult task. */
+    public int TrialChangeIncrement;/*????Not yet implemented (REQUIRED???) - for restarting sets of 30 
+    trials. After each set using "IncrementForLoop", a pause is given and the next set of 
+    30 trials begins*/
+    public static int DisplayIncrement;/*Each time a Blank Task0 stimulus is shown, DisplayIncrement, which begins at 0 
+    is incremented once to provide a count for the individual Taskstimuli trials (each of the thirty stimuli 
+    contained within each of the GetTaskFrameListA1-B2).*/
+
+
+    private void Start()
+    {
+        Usekeys = 1;//Switch data  
+        currentList = GetTaskListA.GetTaskFrameListA1;
+        VoiceResponse.IncrementForSpeech = 0;
+        MainIncrement = 1;
+        IncrementForLoop1 = 0;//
+        IncrementForLoop2 = 0;//
+        IncrementForLoop3 = 0;//
+        IncrementForLoop4 = 0;//
+/*        IncrementForLoop5 = 0;//
+        IncrementForLoop6 = 0;//
+        IncrementForLoop7 = 0;//
+        IncrementForLoop8 = 0;//
+*/      DisplayIncrement = 0; //
+        File.AppendAllText(Application.dataPath + "/TaskDisplayData.txt",
+            "\r\n.\r\n.\r\n.\r\n.\r\n" + "TASK\t" +
+            "Starting private void start. Should be 0s .... "
+            + Time.time + "\r\n");
+        rend = GetComponent<Renderer>();
+        rend.enabled = true;
+    }
+
+    private void DisplayInitial()
+    {
+        File.AppendAllText(Application.dataPath + "/FinalLog/TaskDisplayData.txt",
+        "\r\n" + "TASK\t" + "Before Timer Stop Initial\t" + Time.time +
+        "\t" + rend.sharedMaterial+ "EMOS\t" + "MatStim\t" + Time.time + 
+            "\t" + rend.sharedMaterial );
+        rend.sharedMaterial = TaskLeadInRenders[0];
+
+//Time Stop Initial Timer
+        FunctionTimer.StopTimer("InitialTimer");
+        File.AppendAllText(Application.dataPath + "/FinalLog/TaskDisplayData.txt",
+            "\r\n" + "TASK\t" + "After Timer stop Initial\t" + Time.time +
+            "\t" + rend.sharedMaterial);
+        File.AppendAllText(Application.dataPath + "/FinalLog/TaskDisplayData.txt",
+            "\r\n" + "TASK\t" + "Before create Fixation timer\t" + Time.time +
+            "\t" + rend.sharedMaterial);
+
+ //Time Stop Initial Timer (for some reason twice, but it seems to work better, don't know why?
+        FunctionTimer.StopTimer("InitialTimer");
+
+//Time Create Fixation timer, but displays blank timer. Don't understand that. Timing fine though.
+        FunctionTimer.Create(DisplayFixation, 2f, "FixationTimer");
+        File.AppendAllText(Application.dataPath + "/FinalLog/TaskDisplayData.txt",
+            "\r\n" + "TASK\t" + "After create Fixation Timer\t" + Time.time +
+            "\t" + rend.sharedMaterial);
+
+
+    }
+
+    private void DisplayFixation() //Display fixation cross 
+    {
+        rend.sharedMaterial = TaskLeadInRenders[1];
+        FunctionTimer.StopTimer("FixationTimer");
+
+//Says display Neutral, but displays fixation for three seconds. Don't understand that. Timing fine though.
+        FunctionTimer.Create(DisplayNeutral, 3f, "NeutralTimer");
+        File.AppendAllText(Application.dataPath + "/FinalLog/TaskDisplayData.txt",
+        "\r\n" + "TASK\t" + "After create NeutralTimer - Displaying Fixation 3 seconds \t" + Time.time +
+        "\t" + rend.sharedMaterial);
+    }
+
+    /*------------- ToDo - Loop as of here, C, D, E, F  10 loops and A, B 10 loops ---------------
+    --------------------------------No true randomising ------------------------------------------*/
+
+
+    void DisplayNeutral() //Display Blank Task
+    {
+        Usekeys = 0;//Switch data  now always set to 1
+        rend.sharedMaterial = TaskLeadInRenders[0];
+        File.AppendAllText(Application.dataPath + "/FinalLog/TaskDisplayData.txt",
+            "\r\n" + DisplayIncrement + "\tDisplaying task 0 (Blank)\t" + Time.time +
+            "\tshowing\t" + rend.sharedMaterial + "\t");
+
+//Ends fixation after three seconds. Don't understand why. Timing fine though.
+        FunctionTimer.StopTimer("NeutralTimer");
+
+//Begins TaskStim. 
+        FunctionTimer.Create(DisplayTaskStim, 1f, "TaskStimTimer");
+    }
+
+    private void DisplayTaskStim()
+    {
+        Usekeys = 1;//Switch data for Usekeys can be set to 1 permanently if only using voice recognition
+        switch (currentList)
+        {
+            case GetTaskListA.GetTaskFrameListA1:
+                rend.sharedMaterial = GetTaskFrameListA1[IncrementForLoop1];
+                File.AppendAllText(Application.dataPath + "/FinalLog/TaskDisplayData.txt", "\r\n"  + DisplayIncrement + "\tDisplayingTask A1, no.\t" + IncrementForLoop1 +
+                    "\t at display time\t" + Time.time + "\tshowing material\t" + rend.sharedMaterial + "\t");
+                IncrementForLoop1++;
+                MainIncrement++;
+                break;
+            case GetTaskListA.GetTaskFrameListB1:
+                rend.sharedMaterial = GetTaskFrameListB1[IncrementForLoop2];
+                File.AppendAllText(Application.dataPath + "/FinalLog/TaskDisplayData.txt", "\r\n" + DisplayIncrement + "\tDisplayingTask B1, no.\t" + IncrementForLoop2 +
+                    "\t at display time\t" + Time.time + "\tshowing material\t" + rend.sharedMaterial + "\t");
+                IncrementForLoop2++;
+                MainIncrement++;
+                break;
+                case GetTaskListA.GetTaskFrameListA2:
+                rend.sharedMaterial = GetTaskFrameListA2[IncrementForLoop3];
+                File.AppendAllText(Application.dataPath + "/FinalLog/TaskDisplayData.txt", "\r\n" + DisplayIncrement + "\tDisplayingTask A2, no.\t" + IncrementForLoop3 +
+                    "\t at display time\t" + Time.time + "\tshowing material\t" + rend.sharedMaterial + "\t");
+                IncrementForLoop3++;
+                MainIncrement++;
+                break;
+            case GetTaskListA.GetTaskFrameListB2:
+                rend.sharedMaterial = GetTaskFrameListB2[IncrementForLoop4];
+                File.AppendAllText(Application.dataPath + "/FinalLog/TaskDisplayData.txt", "\r\n" + DisplayIncrement + "\tDisplayingTask B2, no.\t" + IncrementForLoop4 +
+                    "\t at display time\t" + Time.time + "\tshowing material\t" + rend.sharedMaterial + "\t");
+                IncrementForLoop4++;
+                MainIncrement++;
+                break;
+/*            case GetTaskListA.GetTaskFrameListA3:
+                rend.sharedMaterial = GetTaskFrameListA3[IncrementForLoop5];
+                File.AppendAllText(Application.dataPath + "/FinalLog/TaskDisplayData.txt", "\r\n"  + DisplayIncrement + "\tDisplayingTask A3, no.\t" + IncrementForLoop5 +
+                    "\t at display time\t" + Time.time + "\tshowing material\t" + rend.sharedMaterial + "\t");
+                IncrementForLoop5++;
+                MainIncrement++;
+                break;
+            case GetTaskListA.GetTaskFrameListB3:
+                rend.sharedMaterial = GetTaskFrameListB3[IncrementForLoop6];
+                File.AppendAllText(Application.dataPath + "/FinalLog/TaskDisplayData.txt", "\r\n"  + DisplayIncrement + "\tDisplayingTask B3, no.\t" + IncrementForLoop6 +
+                    "\t at display time\t" + Time.time + "\tshowing material\t" + rend.sharedMaterial + "\t");
+                IncrementForLoop6++;
+                MainIncrement++;
+                break;
+            case GetTaskListA.GetTaskFrameListA4:
+                rend.sharedMaterial = GetTaskFrameListA4[IncrementForLoop7];
+                File.AppendAllText(Application.dataPath + "/FinalLog/TaskDisplayData.txt", "\r\n"  + DisplayIncrement + "\tDisplayingTask A4, no.\t" + IncrementForLoop7 +
+                    "\t at display time\t" + Time.time + "\tshowing material\t" + rend.sharedMaterial + "\t");
+                IncrementForLoop7++;
+                MainIncrement++;
+                break;
+            case GetTaskListA.GetTaskFrameListB4:
+                rend.sharedMaterial = GetTaskFrameListB4[IncrementForLoop8];
+                File.AppendAllText(Application.dataPath + "/FinalLog/TaskDisplayData.txt", "\r\n"  + DisplayIncrement + "\tDisplayingTask B4, no.\t" + IncrementForLoop8 +
+                    "\t at display time\t" + Time.time + "\tshowing material\t" + rend.sharedMaterial + "\t");
+                IncrementForLoop8++;
+                MainIncrement++;
+                break;
+*/
+        }
+        ContOrDeb();
+    }
+
+    private void ContOrDeb()
+    {
+//        if (MainIncrement < 121) // in the case of 120 Trials
+          if (MainIncrement < 61) //in the case of 60 trials
+        {
+
+            //Ends TaskStim. 
+            ChangeMaterial.DisplayFearSignal++;
+            FunctionTimer.StopTimer("TaskStimTimer");
+            FunctionTimer.Create(DisplayNeutral, 1.04f, "NeutralTimer");
+
+            DisplayIncrement++;
+        }
+        else
+        {
+            Debrief();
+            DisplayIncrement++;
+            File.AppendAllText(Application.dataPath + "/FinalLog/TaskDisplayData.txt", "\r\n" + "Debrief \t"
+            + Time.time + "\r\n....\r\n....\r\n....\r\n");
+        }
+    }
+
+
+    private void Debrief()
+    {
+        FunctionTimer.StopTimer("DebriefTimer");
+        rend.sharedMaterial = TaskLeadInRenders[1];
+
+
+    }
+
+    private void Update()
+    {
+        if (ExperimentalProcedure.BooltaskTestSession == false)
+        {
+            TaskInstructionScript.ReadyTrials01 = false;
+        }
+        else if (ExperimentalProcedure.BooltaskTestSession == true)
+        {
+            Start();
+            TaskInstructionScript.ReadyTrials01 = true;
+        }
+
+        if (TaskInstructionScript.ReadyTrials01 == true)
+        {
+            //Creates new loop as soon as Ready Trials01 == true. 
+            FunctionTimer.Create(DisplayInitial, 1f, "InitialTimer");
+
+            switch (Usekeys)
+            {
+                case 0: //disable key responses during stimulus
+                    File.AppendAllText(Application.dataPath +
+                        "/FinalLog/VoiceSwitchActivateLOG.txt", "\r\n" +
+                        DisplayIncrement +
+                        "\tmic input after task\t" + Time.time +
+                        "\tshowing\t" + rend.sharedMaterial + "\tdecib is \t" +
+                        MicInput.MicLoudnessinDecibels.ToString("##.##") + "\t");//\t= separator
+                    if (Input.GetKeyDown(KeyCode.M))
+                    {
+                        File.AppendAllText(Application.dataPath +
+                            "/FinalLog/KeyActivateLOG.txt", "\t" +
+                            "REAC\t" +
+                            "Yes\t" +
+                            Time.time + "\t" +
+                            rend.sharedMaterial + "\t");
+                    }
+                    else if (Input.GetKeyDown(KeyCode.G))
+                    {
+                        File.AppendAllText(Application.dataPath +
+                            "/FinalLog/KeyActivateLOG.txt", "\t" +
+                            "REAC\t" +
+                            "No\t" +
+                            Time.time + "\t" +
+                            rend.sharedMaterial + "\t");
+                    }
+                    break;
+
+                case 1: //enable key responses during breaks
+                    File.AppendAllText(Application.dataPath +
+                        "/FinalLog/VoiceSwitchActivateLOG.txt", "\r\n" +
+                        DisplayIncrement +
+                        "\tmic input during task\t" +
+                        Time.time +
+                        "\tshowing\t" + rend.sharedMaterial +
+                        "\tdb is \t" + MicInput.MicLoudnessinDecibels.ToString("##.##") + "\t");//\t= separator
+                    if (Input.GetKeyDown(KeyCode.G))
+                    {
+                        File.AppendAllText(Application.dataPath +
+                            "/FinalLog/KeyActivateLOG.txt", "\t" +
+                            "REAC\t" +
+                            "Yes\t" +
+                            Time.time + "\t" +
+                            rend.sharedMaterial + "\t");
+                    }
+                    else if (Input.GetKeyDown(KeyCode.H))
+                    {
+                        File.AppendAllText(Application.dataPath +
+                            "/FinalLog/KeyActivateLOG.txt", "\t" +
+                            "REAC\t" +
+                            "No\t" +
+                            Time.time + "\t" +
+                            rend.sharedMaterial + "\t");
+                    }
+                    break;
+            }
+
+            if (MainIncrement < 16)
+            {
+                currentList = GetTaskListA.GetTaskFrameListA1;
+            }
+            else if (MainIncrement > 15 && MainIncrement < 31)
+            {
+                currentList = GetTaskListA.GetTaskFrameListB1;
+            }
+            else if (MainIncrement > 30 && MainIncrement < 46)
+            {
+                currentList = GetTaskListA.GetTaskFrameListA2;
+            }
+            else if (MainIncrement > 45 && MainIncrement < 61)
+            {
+                currentList = GetTaskListA.GetTaskFrameListB2;
+            }
+            /*        else if (MainIncrement > 60 && MainIncrement < 76)
+                    {
+                        currentList = GetTaskListA.GetTaskFrameListA3;
+                    }
+                    else if (MainIncrement > 75 && MainIncrement < 91)
+                    {
+                        currentList = GetTaskListA.GetTaskFrameListB3;
+                    }
+                    else if (MainIncrement > 90 && MainIncrement < 106)
+                    {
+                        currentList = GetTaskListA.GetTaskFrameListA4;
+                    }
+                    else if (MainIncrement > 105 && MainIncrement < 121)
+                    {
+                        currentList = GetTaskListA.GetTaskFrameListB4;
+                    }
+            */
+        }
+
+
+    }
+}

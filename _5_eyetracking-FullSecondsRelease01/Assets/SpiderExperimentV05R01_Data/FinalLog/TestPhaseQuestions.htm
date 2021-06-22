@@ -1,0 +1,259 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Final Questions</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1 "/EN>
+<meta name="robots" content="noindex,follow" />
+<script language="JavaScript" type="text/javascript">
+
+
+    // Javascript validation functions
+    // Thank you: http://www.designplace.org/
+
+
+    //function to check empty fields
+
+    function isEmpty(strlname, strcompany, stremail) {
+
+
+        //change "lname, company and email" to your field names
+        strfname = document.forms[0].fname.value
+        strlname = document.forms[0].lname.value
+        strcompany = document.forms[0].company.value
+        stremail = document.forms[0].email.value
+
+        //fname field
+        if (strfname == "" || strfname == null || !isNaN(strfname) || strfname.charAt(0) == ' ') {
+            alert("\"First Name\" is a mandatory field.\nPlease amend and retry.")
+            return false;
+        }
+        //lname field
+        if (strlname == "" || strlname == null || !isNaN(strlname) || strlname.charAt(0) == ' ') {
+            alert("\"Last Name\" is a mandatory field.\nPlease amend and retry.")
+            return false;
+        }
+
+        //company field 
+        if (strcompany == "" || strcompany == null || strcompany.charAt(0) == ' ') {
+            alert("\"Company\" is a mandatory field.\nPlease amend and retry.")
+            return false;
+        }
+
+        //email field 
+        if (stremail == "" || stremail == null || stremail.charAt(0) == ' ') {
+            alert("\"E-mail Address\" is a mandatory field.\nPlease amend and retry.")
+            return false;
+        }
+        return true;
+    }
+
+
+    //function to check valid email address
+    function isValidEmail(stremail) {
+        validRegExp = /^[^@]+@[^@]+.[a-z]{2,}$/i;
+        strEmail = document.forms[0].email.value;
+
+        // search email text for regular exp matches
+        if (stremail.search(validRegExp) == -1) {
+            alert('A valid e-mail address is required.\Please amend and retry');
+            return false;
+        }
+        return true;
+    }
+    
+
+    //function that performs all functions, defined in the onsubmit event handler
+
+    function check(form) {
+        if (isEmpty(form.lname)) {
+            if (isEmpty(form.company)) {
+                if (isEmpty(form.email)) {
+                    if (isValidEmail(form.email)) {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
+
+</script>
+</head>
+
+<body bgcolor="#e1faf9" text="#000000">
+<h3><big><big><big>Test phase questions</big></big></big></h3>
+<br>
+<form name="theform" method="post" action="http://www.given-communication.de/dnldbx/Experiment/webform/cgi-bin/SendFinalQuestionnaire.php" onSubmit="return check(this);">
+  &nbsp;&nbsp;First Name (required!)<br />
+&nbsp;&nbsp;<input name="fname" type="text" />
+	<br />
+  &nbsp;&nbsp;Last Name (required!)<br />
+&nbsp;&nbsp;<input name="lname" type="text" />
+	<br>
+&nbsp;&nbsp;E-Mail Address (required!)<br>
+&nbsp;&nbsp;<input name="email" type="email" id="email" />
+	<br /><br />
+&nbsp;&nbsp;Robot check (required!) <br>&nbsp;&nbsp;If you are not a robot write the answer below: <br>
+&nbsp;&nbsp;7 + 2 = <input name="company" type="text" pattern="9" />
+	<br /><br />
+
+
+<p><b> </b></p>
+&nbsp;&nbsp;<big><i>Before you hit the send button, please don't  forget to send us your data as well.</big> 
+<br>&nbsp;&nbsp;The following link should open your email programm with a description of the data required: 
+
+
+
+
+<br></b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b><i>
+<a href="mailto:jogi1800@student.miun.se?subject=Data%20for%20Spider%20Experiment&amp;body=Please send the following files which can be found at the following location (provided the path  has been created correctly, you can copy and paste it into explorer.)%0d%0a%0d%0aFolder: C:\Users\User\Documents\Unity\TaskLeft\5_eyetracking-FullSecondsNearCompletion09a\Assets\SpiderExperimentV05R01_Data\FinalLog\%0d%0aTrialSessions1und2.txt%0d%0aExpSession1.txt%0d%0aExpSession2.txt%0d%0aTrialSessions3und4.txt %0d%0aExpSession3.txt%0d%0aExpSession4.txt%0d%0a%0d%0aPlease don't forget to send your Final Questionnaire Data which you can find in the same folder, either as Instructions+Debrief.PDF or as instructions.txt"> jogi1800@student.miun.se</a></i></b><br><br>&nbsp;&nbsp;Alternatively, if the link does not work. you can copy and paste it into an email.<br><br>&nbsp;&nbsp;<br><br><big><big><input name="Please press to send your answers" type="submit" VALUE="CLICK THIS BUTTON TO SEND!" /> <br></big></big>&nbsp;&nbsp;If the transmission fails and you get a different message, use the back button in your browser to return to the form and try again. <br>&nbsp;&nbsp;If it still doesn't work, please send an email to the email adress above.</i><br>&nbsp;&nbsp;&nbsp;&nbsp;<big><big><b><br>answer the following 8 questions.</u></big></big></big></b><br><br><br>&nbsp;&nbsp;&nbsp;&nbsp;<b>
+1.Is the intial questionnnaire understandable?<br><br></b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio" name="radio1" value="Yes">Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio" name="radio1" value="No">No<br><br> <br>&nbsp;&nbsp;&nbsp;&nbsp;<b>
+
+2.Does the HTML form open without any problems?<br><br></b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio" name="radio2" value="Yes">Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio" name="radio2" value="No">No<br><br> <br>&nbsp;&nbsp;&nbsp;&nbsp;<b>
+
+3.Does the HTML form open without any problems?<br><br></b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio" name="radio3" value="Yes">Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio" name="radio3" value="No">No<br><br> <br>&nbsp;&nbsp;&nbsp;&nbsp;<b>
+
+4. Could you send your data without any problems? <br><br></b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio" name="radio4" value="Yes">Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio" name="radio4" value="No">No<br><br> <br>&nbsp;&nbsp;&nbsp;&nbsp;<b>
+
+5.  Did you have any other application open during the test?<br><br></b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio" name="radio5" value="Yes">Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio" name="radio5" value="No">No<br><br> <br>&nbsp;&nbsp;&nbsp;&nbsp;<b>
+
+6. Are these ”heavy" applications that you associate with slow behaviour?<br><br></b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio" name="radio6" value="Yes">Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio" name="radio6" value="No">No<br><br> <br>&nbsp;&nbsp;&nbsp;&nbsp;<b>
+<input type="radio" name="radio6" value="Don't know">Don't know&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+7. After you have completed the experiment, try to start it again. A message should appear when you enter your password that it is not possible to start it. Does this message appear?
+<br><br></b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio" name="radio7" value="Yes">Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio" name="radio7" value="No">No<br><br> <br>&nbsp;&nbsp;&nbsp;&nbsp;<b>
+
+8. The slides should be synchronous, meaning that stimulus onset for emotional and task slides should be simultaneous. How often is this NOT the case?
+<br><br></b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio" name="radio8" value="Never">not at all&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio" name="radio8" value="less than 5 times">seldom&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio" name="radio8" value="less than 10 times">sometimes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio" name="radio8" value="less than 20 times">often&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio" name="radio8" value="more often than 20 times">all the time<br><br> <br>&nbsp;&nbsp;&nbsp;&nbsp;<b>
+
+
+9. Is the ﬁnal questionnnaire understandable?<br><br></b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio" name="radio9" value="Yes">Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio" name="radio9" value="No">No<br><br> <br>&nbsp;&nbsp;&nbsp;&nbsp;<b>
+
+10. Could you send your data without any problems?<br><br></b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio" name="radio10" value="Yes">Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio" name="radio10" value="No">No<br><br> <br>&nbsp;&nbsp;&nbsp;&nbsp;<b>
+
+11. Was it was clear to you which data you had to send?<br><br></b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio" name="radio11" value="Yes">Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio" name="radio11" value="No">No<br><br> <br>&nbsp;&nbsp;&nbsp;&nbsp;<b>
+
+12. Did you remember to send the ﬁnal questionnaire?<br><br></b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio" name="radio12" value="Yes">Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio" name="radio12" value="No">No<br><br> <br>&nbsp;&nbsp;&nbsp;&nbsp;<b>
+
+
+
+
+4. If you experienced fear, how intense was it? <br><br></b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="radio" name="radio4" value="very low">very low
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="radio" name="radio4" value="low">low
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="radio" name="radio4" value="medium">medium
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="radio" name="radio4" value="high">high
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="radio" name="radio4" value="very high">very high<br><br> <br> 
+        &nbsp;&nbsp;&nbsp;&nbsp;<b>5. Did you experience disgust during this experiment? <br><br></b>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="radio5" value="not at all">not at all
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="radio" name="radio5" value="seldom">seldom
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="radio" name="radio5" value="sometimes">sometimes
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="radio" name="radio5" value="often">often
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="radio" name="radio5" value="all the time">all the time<br><br> <br> 
+        &nbsp;&nbsp;&nbsp;&nbsp;<b>
+
+        6. If you experienced disgust, how intense was it? <br><br></b>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        <input type="radio" name="radio6" value="very low">very low
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="radio" name="radio6" value="low">low
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="radio" name="radio6" value="medium">medium
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="radio" name="radio6" value="high">high
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="radio" name="radio6" value="very high">very high<br><br> <br> 
+        &nbsp;&nbsp;&nbsp;&nbsp;<b>
+
+        7. Were you startled during this experiment? <br><br></b>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        <input type="radio" name="radio7" value="not at all">not at all
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="radio" name="radio7" value="seldom">seldom
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="radio" name="radio7" value="sometimes">sometimes
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="radio" name="radio7" value="often">often
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="radio" name="radio7" value="all the time">all the time<br><br> <br> 
+        &nbsp;&nbsp;&nbsp;&nbsp;<b>
+
+        8. If you were startled, how intense was it? <br><br></b>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="radio" name="radio8" value="very low">very low
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="radio" name="radio8" value="low">low
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="radio" name="radio8" value="medium">medium
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="radio" name="radio8" value="high">high
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="radio" name="radio8" value="very high">very high<br><br> <br> 
+
+	
+        <b> 
+        <big>Please go back to the top and send your answers? And please don't forget to send us your data as well. <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+        </body></html>

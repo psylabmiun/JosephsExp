@@ -1,0 +1,33 @@
+fileFormatVersion: 2
+guid: b6ece7ab92493ca48a68706fcbb72cfc
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - textObject01: {fileID: 2243648183165440714, guid: 58631fe460d42104fa849a200c195c8d,
+      type: 3}
+  - textObject02: {fileID: 3319423231923661527, guid: 9379f02464d50d844b6506bbf9230d72,
+      type: 3}
+  - textObject03: {fileID: 7740250389189596180, guid: 66651dc6eff635f4fba26fc140ca210e,
+      type: 3}
+  - textObject04: {fileID: 939072638070290494, guid: 023700c844a0a344ea9dd43a50c542b2,
+      type: 3}
+  - textObject05: {fileID: 2205179889310844648, guid: 450c9645a32e47b4fa6175101ae57330,
+      type: 3}
+  - textObject06: {fileID: 7280817725632263254, guid: 7e2e9aec30143954ea924a632990db70,
+      type: 3}
+  - textObject07: {fileID: 8804688674249904955, guid: 7601e03ed03173c47b3362af005cac01,
+      type: 3}
+  - FixationExample01: {fileID: 7468665060299140364, guid: 6c058e1cc948e7649b9462c1431fd46c,
+      type: 3}
+  - TaskAExample: {fileID: 446911072903399602, guid: 011c5ff55418d15419d0ab1210f472db,
+      type: 3}
+  - TaskBExample: {fileID: 8101062548089447075, guid: 62ebc73850f40b84c93ed9e20e9ef4d3,
+      type: 3}
+  - BlankPlane: {fileID: 732178559168196117, guid: b96d9c9755cedbe4086bb9593f31e7e2,
+      type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

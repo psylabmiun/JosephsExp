@@ -1,0 +1,56 @@
+﻿using UnityEngine;
+using System.Collections;
+using UnityEngine.UI;
+using System.Linq;
+using System.Runtime.InteropServices;
+using System.IO;
+using System.Diagnostics;
+
+public class Page5ButtonOpenFolder : MonoBehaviour
+{
+    public QuesZGetScores quesZGetScores;
+    public string Fname;
+    public string Sname;
+    public string DoB;
+    public string Pmail;
+
+
+
+    public Button ButtonPage5Folder;
+    public GameObject ButtonActvPage5Folder;
+    public Text Summary;
+    public bool BoolBtnActvPage5Folder;
+    string startupPath = System.IO.Directory.GetCurrentDirectory();
+
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        Button btn = ButtonPage5Folder.GetComponent<Button>();
+        btn.onClick.AddListener(SetBoolBtnActvPage5Folder);
+        BoolBtnActvPage5Folder = true;
+    }
+    public void SetBoolBtnActvPage5Folder()
+    {
+        UnityEngine.Debug.Log("Page5ButtonOpenFolder/SetBoolBtnActvPage5Folder()");
+        ShowExplorer();
+    }
+
+
+    public void ShowExplorer()
+    {
+        BoolBtnActvPage5Folder = false;
+        startupPath = startupPath.Replace(@"/", @"\");   // explorer doesn't like front slashes
+        //System.Diagnostics.Process.Start("explorer.exe", startupPath);
+        Application.OpenURL("file://" + startupPath + "/Assets_Data/FinalLog/");
+
+    }
+
+
+
+    void Update()
+    {
+
+    }
+
+}

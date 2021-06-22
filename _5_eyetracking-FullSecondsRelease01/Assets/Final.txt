@@ -1,0 +1,294 @@
+
+.
+.
+.
+.
+TASK	Starting TaskTestSession/Init(). Should be 0s .... 4,684918
+
+.
+.
+.
+.
+TASK	Starting TaskTestSession/Init(). Should be 0s .... 5,51809
+
+.
+.
+.
+.
+TASK	Starting TaskTestSession/Init(). Should be 0s .... 5,519189
+
+.
+.
+.
+.
+TASK	Starting TaskTestSession/Init(). Should be 0s .... 3,671894
+
+.
+.
+.
+.
+TASK	Starting TaskTestSession/Init(). Should be 0s .... 5,113986
+
+.
+.
+.
+.
+TASK	Starting TaskTestSession/Init(). Should be 0s .... 5,254157
+
+.
+.
+.
+.
+TASK	Starting TaskTestSession/Init(). Should be 0s .... 177,2743
+
+.
+.
+.
+.
+TASK	Starting TaskTestSession/Init(). Should be 0s .... 231,7674
+
+.
+.
+.
+.
+TASK	Starting TaskTestSession/Init(). Should be 0s .... 294,9821
+
+.
+.
+.
+.
+TASK	Starting TaskTestSession/Init(). Should be 0s .... 337,6279
+
+.
+.
+.
+.
+TASK	Starting TaskTestSession/Init(). Should be 0s .... 381,7631
+
+.
+.
+.
+.
+TASK	Starting TaskTestSession/Init(). Should be 0s .... 435,5489
+
+.
+.
+.
+.
+TASK	Starting TaskTestSession/Init(). Should be 0s .... 482,9493
+
+.
+.
+.
+.
+TASK	Starting TaskTestSession/Init(). Should be 0s .... 3,957391
+
+.
+.
+.
+.
+TASK	Starting TaskTestSession/Init(). Should be 0s .... 99,40083
+
+.
+.
+.
+.
+TASK	Starting TaskTestSession/Init(). Should be 0s .... 4,06236
+
+.
+.
+.
+.
+TASK	Starting TaskTestSession/Init(). Should be 0s .... 71,79173
+
+.
+.
+.
+.
+TASK	Starting TaskTestSession/Init(). Should be 0s .... 112,11
+
+.
+.
+.
+.
+TASK	Starting TaskTestSession/Init(). Should be 0s .... 154,914
+
+.
+.
+.
+.
+TASK	Starting TaskTestSession/Init(). Should be 0s .... 226,6439
+
+.
+.
+.
+.
+TASK	Starting TaskTestSession/Init(). Should be 0s .... 269,7889
+
+.
+.
+.
+.
+TASK	Starting TaskTestSession/Init(). Should be 0s .... 310,6217
+
+.
+.
+.
+.
+TASK	Starting TaskTestSession/Init(). Should be 0s .... 352,2934
+
+.
+.
+.
+.
+TASK	Starting TaskTestSession/Init(). Should be 0s .... 3,717932
+
+.
+.
+.
+.
+TASK	Starting TaskTestSession/Init(). Should be 0s .... 44,91119
+
+.
+.
+.
+.
+TASK	Starting TaskTestSession/Init(). Should be 0s .... 102,668
+
+.
+.
+.
+.
+TASK	Starting TaskTestSession/Init(). Should be 0s .... 143,1489
+
+.
+.
+.
+.
+TASK	Starting TaskTestSession/Init(). Should be 0s .... 196,0661
+
+.
+.
+.
+.
+TASK	Starting TaskTestSession/Init(). Should be 0s .... 258,0695
+
+.
+.
+.
+.
+TASK	Starting TaskTestSession/Init(). Should be 0s .... 299,0401
+
+.
+.
+.
+.
+TASK	Starting TaskTestSession/Init(). Should be 0s .... 343,3991
+
+.
+.
+.
+.
+TASK	Starting TaskTestSession/Init(). Should be 0s .... 9,686388
+
+.
+.
+.
+.
+TASK	Starting TaskTestSession/Init(). Should be 0s .... 216,9997
+
+.
+.
+.
+.
+TASK	Starting TaskTestSession/Init(). Should be 0s .... 5,070618
+
+.
+.
+.
+.
+TASK	Starting TaskTestSession/Init(). Should be 0s .... 47,36464
+
+.
+.
+.
+.
+TASK	Starting TaskTestSession/Init(). Should be 0s .... 88,14831
+
+.
+.
+.
+.
+TASK	Starting TaskTestSession/Init(). Should be 0s .... 127,9711
+
+.
+.
+.
+.
+TASK	Starting TaskTestSession/Init(). Should be 0s .... 179,6522
+
+.
+.
+.
+.
+TASK	Starting TaskTestSession/Init(). Should be 0s .... 229,2047
+
+.
+.
+.
+.
+TASK	Starting TaskTestSession/Init(). Should be 0s .... 283,926
+
+.
+.
+.
+.
+TASK	Starting TaskTestSession/Init(). Should be 0s .... 323,3146
+
+.
+.
+.
+.
+TASK	Starting TaskTestSession/Init(). Should be 0s .... 13,07715
+
+.
+.
+.
+.
+TASK	Starting TaskTestSession/Init(). Should be 0s .... 83,13706
+
+.
+.
+.
+.
+TASK	Starting TaskTestSession/Init(). Should be 0s .... 124,3573
+
+.
+.
+.
+.
+TASK	Starting TaskTestSession/Init(). Should be 0s .... 164,7193
+
+.
+.
+.
+.
+TASK	Starting TaskTestSession/Init(). Should be 0s .... 239,4277
+
+.
+.
+.
+.
+TASK	Starting TaskTestSession/Init(). Should be 0s .... 285,5854
+
+.
+.
+.
+.
+TASK	Starting TaskTestSession/Init(). Should be 0s .... 326,5142
+
+.
+.
+.
+.
+TASK	Starting TaskTestSession/Init(). Should be 0s .... 366,5695

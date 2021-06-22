@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 3fe297e70b881ac4188bfd160e343034
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - experimentalProcedureScript: {instanceID: 0}
+  - micInputScript: {instanceID: 0}
+  - voiceResponseScript: {instanceID: 0}
+  - testsessionFailedTryItAgain: {instanceID: 0}
+  - changeMaterialScript: {instanceID: 0}
+  - taskInstructionScript: {instanceID: 0}
+  - TaskSlide: {fileID: 1455951560774951942, guid: 69b5000d3b1720e4b961d8bb0d47cc93,
+      type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

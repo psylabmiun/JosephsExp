@@ -1,0 +1,49 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class TrialSet1 : MonoBehaviour
+{
+    public ExperimentalProcedure experimentalProcedure;
+    public GameObject TextTrialSet1Go;
+    public static bool BoolReadySet1 = false;
+
+    // Start is called before the first frame update
+    void Init()
+    {
+        TextTrialSet1Go.SetActive(true);
+        Debug.Log("------------------------------------------THIS IS TrialSet1/Init()");
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            TextTrialSet1Go.SetActive(false);
+            BoolReadySet1 = true;
+            ExperimentalProcedure.BooltaskPartOne = false;
+            FunctionTimer.Create(SetBoolBack, 0.2f, "SetTrialSet1BoolBack");
+            Debug.Log("------------------------------------------THIS IS TrialSet1/Init(if (Input.GetKeyDown(KeyCode.Return)))");
+
+        }
+    }
+
+
+    private void SetBoolBack()
+    {
+        Debug.Log("------------------------------------------THIS IS TrialSet1/SetBoolBack()" + ExperimentalProcedure.BooltaskPartOne);
+        FunctionTimer.StopTimer("SetTrialSet1BoolBack"); 
+        TextTrialSet1Go.SetActive(false);
+        BoolReadySet1 = false;
+    }
+    // Update is called once per frame
+    void Update()
+    {
+        if (ExperimentalProcedure.BooltaskPartOne == true)
+        {
+            Init();
+        }
+        else
+        {
+            TextTrialSet1Go.SetActive(false);
+            BoolReadySet1 = false;
+        }
+    }
+}
